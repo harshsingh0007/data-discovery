@@ -1,0 +1,102 @@
+{
+  "exported_at": "2026-10-14T06:00:00Z",
+  "source_system": "Valdena Health Data Catalog (fictional export)",
+  "note": "Export of catalog metadata only. No data values are included. Fields that the catalog does not hold are null.",
+  "entries": [
+    {
+      "id": "airq.station_readings",
+      "display_name": "City station readings (hourly)",
+      "description": "Hourly NO2 and PM2.5 readings from the city's own monitoring stations.",
+      "domain": "Environment",
+      "owner": "Environment Monitoring Unit",
+      "steward": "Giulia Rossi",
+      "status": "active",
+      "classification": "internal",
+      "contains_pii": false,
+      "grain": "hourly",
+      "temporal_coverage": {"start": "2023-01-01", "end": null},
+      "refresh_cadence": "hourly",
+      "last_refreshed": "2026-10-14",
+      "location": "azure://valdena-health/env/station_readings",
+      "access": {"method": "warehouse_sql", "request_process": "Request to the Environment Monitoring Unit"},
+      "row_count_approx": 4200000,
+      "columns": [
+        {"name": "station_id", "type": "string", "description": "Monitoring station code", "pii": false},
+        {"name": "ts_utc", "type": "timestamp", "description": "Hour start, UTC", "pii": false},
+        {"name": "no2_ugm3", "type": "numeric", "description": "NO2 concentration, micrograms per cubic metre", "pii": false},
+        {"name": "pm25_ugm3", "type": "numeric", "description": "PM2.5 concentration, micrograms per cubic metre", "pii": false}
+      ]
+    },
+    {
+      "id": "traffic.hourly_counts",
+      "display_name": "Road traffic counts (hourly)",
+      "description": "Vehicles counted per hour by road counters near the monitoring stations.",
+      "domain": "Mobility",
+      "owner": "Mobility Office",
+      "steward": "Luca Ferri",
+      "status": "active",
+      "classification": "internal",
+      "contains_pii": false,
+      "grain": "hourly",
+      "temporal_coverage": {"start": "2021-01-01", "end": null},
+      "refresh_cadence": "hourly",
+      "last_refreshed": "2026-10-12",
+      "location": "azure://valdena-health/mobility/traffic_hourly",
+      "access": {"method": "warehouse_sql", "request_process": "Request to the Mobility Office"},
+      "row_count_approx": 15000000,
+      "columns": [
+        {"name": "counter_id", "type": "string", "description": "Road counter code", "pii": false},
+        {"name": "ts_local", "type": "timestamp", "description": "Hour start, local time", "pii": false},
+        {"name": "vehicles", "type": "integer", "description": "Vehicles counted in the hour", "pii": false}
+      ]
+    },
+    {
+      "id": "clinic.resp_visits_daily",
+      "display_name": "Respiratory visits (daily, by district)",
+      "description": "Respiratory clinic visits counted per day and per district. Contains no patient identifiers.",
+      "domain": "Clinical",
+      "owner": "Clinical Analytics",
+      "steward": "Chiara Conti",
+      "status": "active",
+      "classification": "internal",
+      "contains_pii": false,
+      "grain": "daily",
+      "temporal_coverage": {"start": "2022-01-01", "end": null},
+      "refresh_cadence": "daily",
+      "last_refreshed": "2026-10-14",
+      "location": "azure://valdena-health/clinic/resp_visits_daily",
+      "access": {"method": "warehouse_sql", "request_process": "Request to Clinical Analytics"},
+      "row_count_approx": 40000,
+      "columns": [
+        {"name": "visit_date", "type": "date", "description": "Day of the visits", "pii": false},
+        {"name": "district", "type": "string", "description": "District of residence", "pii": false},
+        {"name": "visit_count", "type": "integer", "description": "Respiratory visits that day", "pii": false}
+      ]
+    },
+    {
+      "id": "clinic.patient_visits",
+      "display_name": "Clinic visits (one row per patient visit)",
+      "description": "One row per patient visit, with age band, postcode and diagnosis code.",
+      "domain": "Clinical",
+      "owner": "Clinical Records",
+      "steward": "Marta Greco",
+      "status": "active",
+      "classification": "restricted",
+      "contains_pii": true,
+      "grain": "event",
+      "temporal_coverage": {"start": "2019-01-01", "end": null},
+      "refresh_cadence": "daily",
+      "last_refreshed": "2026-10-14",
+      "location": "azure://valdena-health/clinic/patient_visits",
+      "access": {"method": "warehouse_sql", "request_process": "Data Protection Office approval"},
+      "row_count_approx": 900000,
+      "columns": [
+        {"name": "patient_key", "type": "string", "description": "Pseudonymised patient key", "pii": true},
+        {"name": "visit_ts", "type": "timestamp", "description": "Visit time", "pii": false},
+        {"name": "age_band", "type": "string", "description": "Five-year age band", "pii": true},
+        {"name": "postcode", "type": "string", "description": "Patient postcode", "pii": true},
+        {"name": "diagnosis_code", "type": "string", "description": "Diagnosis code", "pii": false}
+      ]
+    }
+  ]
+}

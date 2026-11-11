@@ -1,0 +1,3 @@
+[
+  {"url": "https://example.org/path/to/dataset", "need_ids": ["N1"], "target_windows": ["prototype"], "note": "why you think this fills the need"}
+]

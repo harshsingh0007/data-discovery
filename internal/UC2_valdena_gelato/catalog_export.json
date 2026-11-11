@@ -1,0 +1,77 @@
+{
+  "exported_at": "2026-10-14T06:00:00Z",
+  "source_system": "Valdena Gelato Data Catalog (fictional export)",
+  "note": "Export of catalog metadata only. No data values are included. Fields that the catalog does not hold are null.",
+  "entries": [
+    {
+      "id": "sales.daily_by_product",
+      "display_name": "Daily sales by product",
+      "description": "Units sold and revenue per product per day, from the till system.",
+      "domain": "Retail",
+      "owner": "Retail Operations",
+      "steward": "Marco Bianchi",
+      "status": "active",
+      "classification": "confidential",
+      "contains_pii": false,
+      "grain": "daily",
+      "temporal_coverage": {"start": "2022-01-01", "end": null},
+      "refresh_cadence": "daily",
+      "last_refreshed": "2026-10-14",
+      "location": "azure://valdena-gelato/sales/daily_by_product",
+      "access": {"method": "warehouse_sql", "request_process": "Request to Retail Operations"},
+      "row_count_approx": 310000,
+      "columns": [
+        {"name": "sale_date", "type": "date", "description": "Day of sale", "pii": false},
+        {"name": "product_code", "type": "string", "description": "Product code, see the product list", "pii": false},
+        {"name": "units_sold", "type": "integer", "description": "Units sold that day", "pii": false},
+        {"name": "revenue_eur", "type": "numeric", "description": "Revenue in euros that day", "pii": false}
+      ]
+    },
+    {
+      "id": "sales.products",
+      "display_name": "Product list",
+      "description": "Current product codes, names and categories.",
+      "domain": "Retail",
+      "owner": "Retail Operations",
+      "steward": "Marco Bianchi",
+      "status": "active",
+      "classification": "internal",
+      "contains_pii": false,
+      "grain": "static",
+      "temporal_coverage": {"start": null, "end": null},
+      "refresh_cadence": "on change",
+      "last_refreshed": "2025-03-31",
+      "location": "azure://valdena-gelato/sales/products",
+      "access": {"method": "warehouse_sql", "request_process": "Open to analytics roles"},
+      "row_count_approx": 64,
+      "columns": [
+        {"name": "product_code", "type": "string", "description": "Current product code", "pii": false},
+        {"name": "product_name", "type": "string", "description": "Product name", "pii": false},
+        {"name": "category", "type": "string", "description": "Product category", "pii": false}
+      ]
+    },
+    {
+      "id": "store.calendar",
+      "display_name": "Shop calendar",
+      "description": "Opening days, closures and local events for the shop.",
+      "domain": "Operations",
+      "owner": "Store Operations",
+      "steward": "Elena Russo",
+      "status": "active",
+      "classification": "internal",
+      "contains_pii": false,
+      "grain": "daily",
+      "temporal_coverage": {"start": "2022-01-01", "end": null},
+      "refresh_cadence": "weekly",
+      "last_refreshed": "2026-10-10",
+      "location": "azure://valdena-gelato/store/calendar",
+      "access": {"method": "warehouse_sql", "request_process": "Open to analytics roles"},
+      "row_count_approx": 1500,
+      "columns": [
+        {"name": "calendar_date", "type": "date", "description": "Day", "pii": false},
+        {"name": "is_open", "type": "boolean", "description": "Whether the shop was open", "pii": false},
+        {"name": "event_name", "type": "string", "description": "Local event that day, if any", "pii": false}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "_comment": "Copy to use_cases/<ID>_<slug>.json (no leading underscore) and fill in. Files starting with '_' are ignored. Validate with: python -m discovery_agent validate-use-case <ID>",
+  "id": "UCX",
+  "title": "One line: the decision this data must support",
+  "client": "Client name (say if fictional)",
+  "brief_file": "use_cases/UCX_<slug>.md",
+  "internal_dir": "internal/UCX_<client_slug>",
+  "as_of": "YYYY-MM-DD",
+  "geography": {
+    "primary": [
+      "ISO2"
+    ],
+    "secondary": []
+  },
+  "windows": [
+    {
+      "id": "prototype",
+      "start": "YYYY-MM-DD",
+      "end": "YYYY-MM-DD",
+      "purpose": "Why this period"
+    },
+    {
+      "id": "production",
+      "start": "YYYY-MM-DD",
+      "end": "YYYY-MM-DD",
+      "purpose": "Why this period"
+    }
+  ],
+  "needs": [
+    {
+      "id": "N1",
+      "name": "What data is needed, in business words",
+      "priority": "must",
+      "min_grain": "daily",
+      "windows": [
+        "prototype",
+        "production"
+      ]
+    },
+    {
+      "id": "N2",
+      "name": "...",
+      "priority": "should",
+      "min_grain": "static",
+      "windows": [
+        "production"
+      ]
+    }
+  ],
+  "links_hint": "Where the human finds suggested external dataset links for this use case (optional)"
+}

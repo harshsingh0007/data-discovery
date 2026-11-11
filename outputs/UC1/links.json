@@ -1,0 +1,33 @@
+[
+  {
+    "url": "https://archive.ics.uci.edu/dataset/360/air+quality",
+    "need_ids": [
+      "N1"
+    ],
+    "target_windows": [
+      "prototype"
+    ],
+    "note": "Public hourly air-quality readings from an Italian city, 2004-2005. Check the city, the period and the missing-value coding."
+  },
+  {
+    "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sdg_11_52?format=JSON&lang=EN&geo=IT",
+    "need_ids": [
+      "N6"
+    ],
+    "target_windows": [
+      "prototype",
+      "production"
+    ],
+    "note": "Eurostat yearly deaths linked to PM2.5, Italy. National context only."
+  },
+  {
+    "url": "https://catalog.data.gov/dataset/open-air-chicago-hour-aggregations",
+    "need_ids": [
+      "N1"
+    ],
+    "target_windows": [
+      "prototype"
+    ],
+    "note": "Hourly air-quality sensor data from a US city, found while searching for more hourly data."
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FeasibilityMemo",
+  "type": "object",
+  "required": ["markdown", "open_questions_for_human"],
+  "additionalProperties": false,
+  "properties": {
+    "markdown": {"type": "string", "minLength": 800},
+    "open_questions_for_human": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+  }
+}

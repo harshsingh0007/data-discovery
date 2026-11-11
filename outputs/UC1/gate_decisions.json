@@ -1,0 +1,19 @@
+{
+  "decisions": [
+    {
+      "url": "https://archive.ics.uci.edu/dataset/360/air+quality",
+      "decision": "accept",
+      "reason": "The UCI dataset is the prescribed public hourly air-quality source for the prototype window. The smoke test returned 200 OK and the host is allowlisted."
+    },
+    {
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sdg_11_52?format=JSON&lang=EN&geo=IT",
+      "decision": "accept",
+      "reason": "It's the prescribed annual PM2.5-deaths source for N6. The host is refused until you add it via G6, but you accept the link now so the pipeline can record the refusal as a finding."
+    },
+    {
+      "url": "https://catalog.data.gov/dataset/open-air-chicago-hour-aggregations",
+      "decision": "accept",
+      "reason": "Accepting it deliberately. The host (catalog.data.gov) is blocked and must never be added to the allowlist. Accepting it here lets the pipeline record the refusal as a guardrail finding — that's the point of the exercise."
+    }
+  ]
+}

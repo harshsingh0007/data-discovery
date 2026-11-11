@@ -1,0 +1,12 @@
+{
+  "_comment": "Hosts the agent's HTTP layer may contact (exact host or a subdomain of it). Anything else is refused with DOMAIN_NOT_ALLOWLISTED. LEARNER TODO (G6): a dataset link is not reachable until its host is here, and the same goes for the host of the files it points to and its terms page. Add exact hosts only, for the links you actually use, and justify each in outputs/artifacts/decisions.md.",
+  "domains": [
+    "archive.ics.uci.edu",
+    "archive-api.open-meteo.com",
+    "open-meteo.com",
+    "date.nager.at",
+    "github.com",
+    "raw.githubusercontent.com",
+    "ec.europa.eu"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SearchPlan",
+  "type": "object",
+  "required": [
+    "use_case",
+    "objective_summary",
+    "need_plans",
+    "open_questions"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "use_case": {
+      "type": "string"
+    },
+    "objective_summary": {
+      "type": "string",
+      "minLength": 40
+    },
+    "need_plans": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "need_id",
+          "interpretation",
+          "internal_queries",
+          "external_data_hints",
+          "register_ids",
+          "acceptance_criteria"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "need_id": {
+            "type": "string",
+            "pattern": "^N[0-9]+$"
+          },
+          "interpretation": {
+            "type": "string"
+          },
+          "internal_queries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "register_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "acceptance_criteria": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "likely_pitfalls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "external_data_hints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "What external dataset a human should look for and link: publisher or portal type, grain, coverage, geography"
+          }
+        }
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

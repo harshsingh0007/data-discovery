@@ -1,0 +1,28 @@
+{
+  "http": {
+    "timeout_s": 25,
+    "max_bytes_default": 2000000,
+    "max_bytes_hard_cap": 5000000,
+    "max_requests_per_run": 150,
+    "user_agent": "stackai-rewire-discovery-agent/1.0 (training exercise; metadata probing only)",
+    "cache_dir": ".cache/http"
+  },
+  "agents": {
+    "max_turns": {
+      "planner": 6,
+      "scout": 24,
+      "profiler": 16,
+      "risk_assessor": 8,
+      "memo_writer": 6
+    },
+    "max_tokens": 16000,
+    "tool_result_char_limit": 14000,
+    "profiler_parallelism": 4,
+    "max_candidates": 20
+  },
+  "rules": {
+    "large_payload_bytes": 100000000,
+    "stale_after_years": 5,
+    "partial_window_threshold": 0.95
+  }
+}

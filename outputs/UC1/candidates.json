@@ -1,0 +1,120 @@
+{
+  "candidates": [
+    {
+      "source_id": "internal.airq.station_readings",
+      "kind": "internal",
+      "title": "City station readings (hourly), Environment Monitoring Unit",
+      "need_ids": [
+        "N1"
+      ],
+      "target_windows": [
+        "production"
+      ],
+      "why_relevant": "Only internal hourly NO2 and PM2.5 source at station level; catalog grain hourly, timestamps ts_utc, units ug/m3 stated. Candidate for the production window 2024-01-01 to 2025-12-31 once access is granted.",
+      "found_via": "search_internal_catalog; get_catalog_entry; read_wiki_page station_network",
+      "suspected_issues": [
+        "Catalog temporal_coverage starts 2023-01-01, so it cannot serve the prototype window 2004-2005 (catalog airq.station_readings)",
+        "Station VR-03 (Via Roma) switched off 2024-06-30; readings stop there, but catalog still lists the network as active (wiki station_network, last_edited 2024-07-01)",
+        "No PM10 column; only NO2 and PM2.5 (catalog columns)",
+        "Access is by request to Environment Monitoring Unit; request status unknown",
+        "No station coordinates in the catalog, so join to the Open-Meteo location is not documented"
+      ]
+    },
+    {
+      "source_id": "internal.traffic.hourly_counts",
+      "kind": "internal",
+      "title": "Road traffic counts (hourly), Mobility Office",
+      "need_ids": [
+        "N2"
+      ],
+      "target_windows": [
+        "production"
+      ],
+      "why_relevant": "Only internal hourly traffic source; counters described as near the monitoring stations. Catalog coverage from 2021 includes 2024-2025.",
+      "found_via": "search_internal_catalog; get_catalog_entry; read_wiki_page counter_replacement_2024",
+      "suspected_issues": [
+        "Counters replaced 2024-03-18; before that counts per direction, after combined both directions; no adjustment documented and catalog has no note (wiki counter_replacement_2024)",
+        "Timestamp is ts_local (local time), while air-quality is ts_utc: timezone alignment needed",
+        "No counter-to-station mapping or distance documented in catalog",
+        "Coverage percentage for 2024-2025 unknown",
+        "Owner Mobility Office; access by request"
+      ]
+    },
+    {
+      "source_id": "internal.clinic.resp_visits_daily",
+      "kind": "internal",
+      "title": "Respiratory visits (daily, by district), Clinical Analytics",
+      "need_ids": [
+        "N4"
+      ],
+      "target_windows": [
+        "production"
+      ],
+      "why_relevant": "Aggregated daily respiratory visit counts by district with no patient identifiers; the only clinic source the clinic data policy allows for this analysis.",
+      "found_via": "search_internal_catalog; get_catalog_entry; read_wiki_page clinic_data_policy",
+      "suspected_issues": [
+        "Catalog coverage starts 2022-01-01; covers the production window but no zero-day or closure handling documented",
+        "Respiratory diagnosis code set and version not documented in catalog",
+        "District code list and link to N1 geography not documented; district boundary changes unknown",
+        "Row count ~40,000 is low relative to 730 days by district, so zero-day representation is unknown",
+        "Small-cell suppression rule not documented"
+      ]
+    },
+    {
+      "source_id": "api.open_meteo_archive",
+      "kind": "public_api",
+      "title": "Open-Meteo Historical Weather API (reanalysis)",
+      "need_ids": [
+        "N3"
+      ],
+      "target_windows": [
+        "prototype",
+        "production"
+      ],
+      "why_relevant": "Only register source for hourly temperature and relative humidity covering both windows; no internal station weather sensor was found in the catalog or wiki. Register purposes include prototyping and production.",
+      "found_via": "list_external_register",
+      "suspected_issues": [
+        "Register default_query points to Lisbon (38.72, -9.14); must be replaced with coordinates of the Italian city chosen as an assumption in decisions.md",
+        "Default hourly variables are temperature_2m and shortwave_radiation; relative_humidity_2m must be requested explicitly",
+        "Reanalysis is modelled grid data (~9-11 km), not a station reading",
+        "Timezone must be set to UTC to align with ts_utc of N1",
+        "Coverage for 2004-2005 is not stated in the register; verify at docs_url"
+      ]
+    }
+  ],
+  "rejected_without_profiling": [
+    {
+      "source_id": "internal.clinic.patient_visits",
+      "reason": "N5 is out of scope: restricted, contains PII (patient key, age band, postcode); wiki clinic_data_policy prohibits its use for this analysis."
+    },
+    {
+      "source_id": "vendor.atmosdata_pro",
+      "reason": "Agreement expired 2025-12-31 (contract AD-2021-114), renewal unsigned, API key revoked 2026-01-01; approved_purposes empty. Not usable."
+    },
+    {
+      "source_id": "api.nager_public_holidays",
+      "reason": "Holiday calendar is tagged for UC1 but no UC1 need (N1-N6) requires holidays; not a candidate."
+    }
+  ],
+  "searches_run": [
+    "hourly air quality station readings NO2 PM2.5 Valdena",
+    "traffic counts hourly road sensors city",
+    "hourly weather temperature humidity",
+    "respiratory clinic visits daily district counts",
+    "patient visit records event level",
+    "national deaths PM2.5 yearly context",
+    "list_external_register",
+    "station weather sensor readings city AtmosData",
+    "PM10 NO2 hourly table legacy station migration",
+    "burden of disease air pollution Italy mortalità PM2.5"
+  ],
+  "unmet_needs": [
+    "N1 prototype (2004-03-10 to 2005-04-04): no internal source; internal station data starts 2023-01-01. Needs a public hourly NO2/PM2.5 dataset for an Italian station supplied as a link. policy.open_data_links allows prototyping use subject to the dataset's own licence, read at source. Station coverage for the exact window must be confirmed.",
+    "N6 (national PM2.5 deaths, annual 2004-2005 and 2024-2025): no internal source and no register API; only the open-data policy entry applies. Needs a dataset link from an Italian statistics or health institute or EEA burden-of-disease release, with edition recorded.",
+    "N2 production: the only traffic source has an unadjusted counter change on 2024-03-18, no station mapping, and no licence review beyond internal ownership. Needs Mobility Office confirmation of station-to-counter mapping before use.",
+    "N3 production: no internal station weather sensor found in the catalog or wiki; Open-Meteo is the only candidate. The AtmosData feed is expired and not usable. The client city assumption still needs to be recorded in decisions.md before any Open-Meteo call.",
+    "Client city is unknown: no source names it, so the location assumption is open.",
+    "Request status and expected date for the city's own station data (N1 production), and the traffic data owner's approval, are unknown.",
+    "N5 (patient-level visits): not usable. clinic.patient_visits is restricted, contains PII, and the clinic data policy prohibits its use. No candidate."
+  ]
+}

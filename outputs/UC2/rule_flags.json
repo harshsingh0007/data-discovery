@@ -1,0 +1,39 @@
+{
+  "flags": {
+    "api.nager_public_holidays": [],
+    "api.open_meteo_archive": [
+      {
+        "code": "LIC-ATTRIBUTION",
+        "evidence": "Licence 'CC BY 4.0' requires attribution",
+        "raised_by": "rule:rule_licence"
+      },
+      {
+        "code": "LIC-MIXED",
+        "evidence": "Record states that parts come from upstream providers with different terms",
+        "raised_by": "rule:rule_licence"
+      }
+    ],
+    "internal.sales.daily_by_product": [
+      {
+        "code": "ACC-RESTRICTED",
+        "evidence": "auth_required=True, classification=confidential, process='Request to Retail Operations'",
+        "raised_by": "rule:rule_access"
+      }
+    ],
+    "internal.sales.products": [
+      {
+        "code": "ACC-RESTRICTED",
+        "evidence": "auth_required=True, classification=internal, process='Open to analytics roles (catalog access.request_process). Not probed; access not tested.'",
+        "raised_by": "rule:rule_access"
+      }
+    ],
+    "internal.store.calendar": [
+      {
+        "code": "ACC-RESTRICTED",
+        "evidence": "auth_required=True, classification=internal, process='Open to analytics roles (catalog entry store.calendar). Role membership not verified.'",
+        "raised_by": "rule:rule_access"
+      }
+    ]
+  },
+  "warnings": []
+}

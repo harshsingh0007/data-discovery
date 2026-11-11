@@ -1,0 +1,137 @@
+{
+  "source_id": "api.open_meteo_archive",
+  "kind": "public_api",
+  "title": "Open-Meteo Historical Weather API (reanalysis, hourly temperature and relative humidity)",
+  "summary": "Gridded historical weather reanalysis served by a REST API, not station readings. Hourly 2 m temperature and 2 m relative humidity can be requested for any latitude/longitude, with timezone set to UTC. Grid resolution is about 9 km for data from 2017 onwards (ECMWF IFS) and 0.25 degrees for ERA5 (from 1940), per the docs. Both prototype (2004) and production (2024) windows returned hourly values in probes. Location for Valdena is not yet confirmed, so the probe used Milan coordinates for testing only.",
+  "schema": {
+    "documented": "structured",
+    "field_count": 3,
+    "fields": [
+      {
+        "name": "time",
+        "type": "string",
+        "description": "Hour start, ISO 8601 local time as requested by timezone parameter",
+        "unit": "iso8601",
+        "pii": false
+      },
+      {
+        "name": "temperature_2m",
+        "type": "number",
+        "description": "Air temperature at 2 m",
+        "unit": "°C",
+        "pii": false
+      },
+      {
+        "name": "relative_humidity_2m",
+        "type": "number",
+        "description": "Relative humidity at 2 m",
+        "unit": "%",
+        "pii": false
+      }
+    ],
+    "notes": "Response is JSON with hourly arrays plus latitude, longitude, elevation, utc_offset_seconds, timezone and hourly_units. The register default_query (Lisbon, shortwave_radiation) must be overridden. Probe response timezone field read 'GMT' while UTC was requested; utc_offset_seconds was 0."
+  },
+  "temporal": {
+    "start": "1940-01-01",
+    "end": null,
+    "grain": "hourly",
+    "metadata_last_updated": "2026-11-11",
+    "open_ended": true,
+    "refresh_cadence": "unknown"
+  },
+  "spatial": {
+    "coverage": [
+      "IT"
+    ],
+    "code_system": "decimal latitude/longitude (WGS84); grid cell returned for the requested point",
+    "notes": "Probe at 45.46N, 9.19E returned grid point 45.448N, 9.169E, elevation 138 m. Valdena's actual coordinates are not in the register and no decisions.md was found in the catalog or wiki search, so the location assumption is unresolved. Coverage is global, so IT coverage is implied by the grid, not stated."
+  },
+  "ownership": {
+    "owner": null,
+    "publisher": "Open-Meteo.com (operator; company registered in Switzerland per terms page)",
+    "steward": null
+  },
+  "licence": {
+    "name": "CC BY 4.0 for API data (per Open-Meteo licence and terms pages); underlying reanalysis carries Copernicus C3S/ECMWF terms",
+    "evidence": "probe_url https://open-meteo.com/en/licence: 'API data are offered under Attribution 4.0 International (CC BY 4.0)'; lists C3S 'Weather reanalysis ... from Copernicus Climate Change Service C3S (Licence)'. probe_url https://open-meteo.com/en/terms: free API is 'for non-commercial purposes' only; commercial use needs paid subscription; 'The data obtained through the API is provided under the terms of the CC-BY 4.0 licence'. Historical API docs page shows toggle 'Usage licence: Non-Commercial / Commercial'.",
+    "commercial_use": "unknown",
+    "agreement_status": "not_required_open_data (register api.open_meteo_archive); policy.open_data_links says production use needs Legal sign-off",
+    "attribution_text": "Weather data by Open-Meteo.com (link required per licence page); cite Zippenfenig 2023 Zenodo DOI 10.5281/ZENODO.7970649 and ERA5/ECMWF attribution where applicable",
+    "mixed_sources": true,
+    "url": "https://open-meteo.com/en/licence"
+  },
+  "access": {
+    "method": "rest_api",
+    "auth_required": false,
+    "reachable": true,
+    "approx_size_bytes": null,
+    "classification": "public open data",
+    "request_process": "Free non-commercial API: under 10,000 calls/day, 5,000/hour, 600/minute, per terms page. Commercial or production use needs a paid API subscription or Legal decision before use in the clinic warning model. Probe: 3-day hourly request returned about 2.2 KB JSON."
+  },
+  "declared_metadata": {
+    "has_missing_values": null,
+    "contains_pii": false,
+    "register_agreement_status": "not_required_open_data",
+    "register_approved_purposes": [
+      "prototyping",
+      "production"
+    ]
+  },
+  "documentation_excerpts": [
+    "Gap-free and consistent historical weather data using weather reanalysis from ERA5 (0.25°, from 1940) and ERA5-Land (0.1°, from 1950) and ECMWF IFS (9 km, from 2017). (docs/historical-weather-api)",
+    "Data from 2017 onwards uses newer weather models with 9 km resolution. Select 'ERA5' or 'ERA5-Land' for consistent data over multiple decades. (docs/historical-weather-api)",
+    "Non-Commercial Use: By using the Free API for non-commercial use you agree to following terms ... You may only use the free API services for non-commercial purposes. (terms)",
+    "If you plan to use our service for commercial purposes or require additional API calls, we kindly request you to consider subscribing to our API plans (terms)",
+    "API data are offered under Attribution 4.0 International (CC BY 4.0) (licence)"
+  ],
+  "quality_notes": [
+    "Modelled grid data, not station measurement: ERA5 is 0.25 degree (about 25 km); IFS is 9 km from 2017. Values at a point are model estimates and should not be treated as station readings for N3 (temperature and humidity) or as a substitute for on-site sensors.",
+    "Register default_query points to Lisbon (38.72, -9.14) and requests shortwave_radiation. Both must be overridden for Italy. relative_humidity_2m must be requested explicitly.",
+    "Coverage: the register does not state coverage dates. Docs state ERA5 from 1940 and ERA5-Land from 1950. Probes returned hourly data for 2004-03-10 to 2004-03-12 and 2024-01-01 to 2024-01-03, so both windows are inside the documented range. Full-window completeness was not checked.",
+    "Register and licence: the register marks the source 'not_required_open_data' with purposes 'prototyping' and 'production', but the free terms restrict use to non-commercial purposes. Whether a public-health warning service counts as non-commercial is not stated in any source; Legal review is needed before production use (policy.open_data_links).",
+    "Docs page says the historical API has a Usage licence toggle (Non-Commercial / Commercial), which is consistent with the terms page. No separate commercial licence was read.",
+    "Location: the Valdena coordinates are not in the register or the wiki. The candidate note refers to decisions.md, which the catalog/wiki search did not return. Location is unresolved.",
+    "Timezone: requesting timezone=UTC returned utc_offset_seconds 0 with timezone label 'GMT'. Hour alignment with ts_utc in N1 should be checked in the first real pull.",
+    "Model-version boundary: the grid resolution changes at 2017 (ERA5 to IFS 9 km per docs). The model used for each period was not confirmed in the probes. This is a consistency risk across the 2004-2005 and 2024-2025 windows."
+  ],
+  "provenance": [
+    {
+      "claim": "Register entry: endpoint https://archive-api.open-meteo.com/v1/archive, agreement not_required_open_data, approved purposes prototyping and production, default_query Lisbon with shortwave_radiation",
+      "evidence": "list_external_register (api.open_meteo_archive)"
+    },
+    {
+      "claim": "API returns hourly temperature_2m (°C) and relative_humidity_2m (%) for 2004-03-10 to 2004-03-12 (72 values) and for 2024-01-01 to 2024-01-03 (72 values)",
+      "evidence": "call_public_api api.open_meteo_archive with start_date 2004-03-10 and 2024-01-01, lat 45.46 lon 9.19, timezone UTC"
+    },
+    {
+      "claim": "Grid point returned is 45.448N 9.169E, elevation 138 m, utc_offset_seconds 0",
+      "evidence": "call_public_api api.open_meteo_archive response shape"
+    },
+    {
+      "claim": "Reanalysis coverage ERA5 from 1940, ERA5-Land from 1950, IFS 9 km from 2017; hourly temperature and relative humidity variables are available",
+      "evidence": "probe_url https://open-meteo.com/en/docs/historical-weather-api"
+    },
+    {
+      "claim": "API data under CC BY 4.0; reanalysis includes Copernicus C3S licence",
+      "evidence": "probe_url https://open-meteo.com/en/licence"
+    },
+    {
+      "claim": "Free API limited to non-commercial use; commercial use needs paid subscription",
+      "evidence": "probe_url https://open-meteo.com/en/terms"
+    },
+    {
+      "claim": "No internal decisions.md or Valdena station coordinates found",
+      "evidence": "search_internal_catalog 'Valdena city coordinates assumption decisions weather location'"
+    }
+  ],
+  "unknowns": [
+    "Valdena's actual coordinates (the decisions.md assumption referenced in the candidate was not found)",
+    "Which underlying model (ERA5 or IFS 9 km) the API used for each probed date",
+    "Whether the Open-Meteo free tier's non-commercial clause covers a civic health office's clinic warning service (Legal decision)",
+    "Full coverage completeness for 2004-03-10 to 2005-04-04 and 2024-01-01 to 2025-12-31 (only the first 3 days of each were probed)",
+    "Owner and steward inside the client organisation",
+    "Refresh cadence and update lag for recent dates (metadata_last_updated shows 2026-11-11 on docs pages, not a data-refresh statement)",
+    "Size of a full two-year hourly pull (no size stated; not computed)",
+    "Whether the response time label 'GMT' with UTC request is an alignment issue for ts_utc (not tested beyond the probe)"
+  ]
+}

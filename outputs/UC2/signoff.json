@@ -1,0 +1,37 @@
+{
+  "reviewer": "Harsh",
+  "verdict": "proceed_with_conditions",
+  "conditions": [
+    {
+      "text": "Retail Operations must attempt to build an old-to-new product code mapping, or confirm that no mapping table exists, before any production analysis crossing the 2024 boundary",
+      "owner": "Retail Operations",
+      "due": "2026-12-01"
+    },
+    {
+      "text": "Analytics lead must choose and record the shop coordinates in outputs/artifacts/decisions.md before any real Open-Meteo archive probe runs",
+      "owner": "Harsh",
+      "due": "2026-11-18"
+    },
+    {
+      "text": "Legal must confirm production use and commercial use under CC BY 4.0 and the Copernicus C3S upstream licence for Open-Meteo archive",
+      "owner": "Legal",
+      "due": "2026-12-01"
+    }
+  ],
+  "agreements": [
+    {
+      "source_id": "internal.sales.daily_by_product",
+      "reason": "INT-JOIN-KEY-MISMATCH is the largest single risk. No mapping table exists for codes retired in 2024. Feasible-with-conditions verdict is correct; production analysis cannot proceed until Retail Operations resolves the mapping gap."
+    },
+    {
+      "source_id": "internal.store.calendar",
+      "reason": "Row count (~1500) does not match declared coverage (~1744 days from 2022-01-01). Feasible-with-conditions verdict is correct; Store Operations must reconcile the count before the calendar is used to distinguish closed days from missing data."
+    }
+  ],
+  "overrides": [],
+  "traced_conclusion": {
+    "source_id": "internal.sales.daily_by_product",
+    "record_field": "temporal.start",
+    "could_change_if": "If Retail Operations confirms the sales table starts before 2022-01-01, the prototype window coverage for N1 and N2 would extend and the vintage of the pre-2024 code set would be larger, potentially making the name-based mapping more reliable."
+  }
+}

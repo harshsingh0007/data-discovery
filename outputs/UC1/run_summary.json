@@ -1,0 +1,20 @@
+{
+  "use_case": "UC1",
+  "model": "claude-haiku-5-5",
+  "stages": {
+    "assess": 61.8,
+    "memo": 39.5
+  },
+  "totals": {
+    "llm_calls": 2,
+    "input_tokens": 44945,
+    "output_tokens": 23957,
+    "cache_read_input_tokens": 0,
+    "tool_calls": 0,
+    "tool_errors": 0,
+    "http_requests": 0,
+    "http_refused": 0
+  },
+  "warnings": [],
+  "finished_at": "2026-11-11T14:39:37Z"
+}

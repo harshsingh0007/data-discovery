@@ -1,0 +1,1489 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="5fPGCLllnWrvFxH9QWI0l1TadV7byeEvfPcyK2VkS_s"/>
+    <meta name="google-site-verification" content="Rp5zp04IKW-s1IbpTOGB7Z6XY60oloZD5C3kTM-AiY4"/>
+
+    
+    
+    <meta name="generator" content="InvenioRDM 15.0"/>
+
+    
+    
+    
+  
+    <meta name="description" content="This dataset was used in the KDD Cup 2018 forecasting competition. It contains long hourly time series representing the air quality levels in 59 stations in 2 cities: Beijing (35 stations) and London (24 stations) from 01/01/2017 to 31/03/2018. The air quality level is represented in multiple measurements such as PM2.5, PM10, NO2, CO, O3 and SO2. The dataset uploaded here contains 270 hourly time series which have been categorized using city, station name and air quality measurement." />
+    <meta name="citation_title" content="KDD Cup Dataset (with Missing Values)" />
+    <meta name="citation_author" content="Godahewa, Rakshitha" />
+    <meta name="citation_author" content="Bergmeir, Christoph" />
+    <meta name="citation_author" content="Webb, Geoff" />
+    <meta name="citation_author" content="Hyndman, Rob" />
+    <meta name="citation_author" content="Montero-Manso, Pablo" />
+    <meta name="citation_doi" content="10.5281/zenodo.4656719" />
+    <meta name="citation_keywords" content="KDD Cup" />
+    <meta name="citation_keywords" content="forecasting" />
+    <meta name="citation_keywords" content="hourly series" />
+    <meta name="citation_abstract_html_url" content="https://zenodo.org/records/4656719" />
+    <meta property="og:title" content="KDD Cup Dataset (with Missing Values)" />
+    <meta property="og:description" content="This dataset was used in the KDD Cup 2018 forecasting competition. It contains long hourly time series representing the air quality levels in 59 stations in 2 cities: Beijing (35 stations) and London (24 stations) from 01/01/2017 to 31/03/2018. The air quality level is represented in multiple measurements such as PM2.5, PM10, NO2, CO, O3 and SO2. The dataset uploaded here contains 270 hourly time series which have been categorized using city, station name and air quality measurement." />
+    <meta property="og:url" content="https://zenodo.org/records/4656719" />
+    <meta property="og:site_name" content="Zenodo" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@zenodo_org" />
+    <meta name="twitter:title" content="KDD Cup Dataset (with Missing Values)" />
+    <meta name="twitter:description" content="This dataset was used in the KDD Cup 2018 forecasting competition. It contains long hourly time series representing the air quality levels in 59 stations in 2 cities: Beijing (35 stations) and London (24 stations) from 01/01/2017 to 31/03/2018. The air quality level is represented in multiple measurements such as PM2.5, PM10, NO2, CO, O3 and SO2. The dataset uploaded here contains 270 hourly time series which have been categorized using city, station name and air quality measurement." />
+    
+    <link rel="alternate" type="application/zip" href="https://zenodo.org/records/4656719/files/kdd_cup_2018_dataset_with_missing_values.zip">
+    <link rel="item" type="application/zip" href="https://zenodo.org/records/4656719/files/kdd_cup_2018_dataset_with_missing_values.zip">
+
+
+<link rel="canonical" href="https://zenodo.org/records/4656719">
+      
+      
+      <title>KDD Cup Dataset (with Missing Values) | Zenodo</title>
+      <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico"/>
+          <link rel="apple-touch-icon" sizes="120x120" href="/static/apple-touch-icon-120.png"/>
+          <link rel="apple-touch-icon" sizes="152x152" href="/static/apple-touch-icon-152.png"/>
+          <link rel="apple-touch-icon" sizes="167x167" href="/static/apple-touch-icon-167.png"/>
+          <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon-180.png"/>
+    
+      <link rel="stylesheet" href="/static/dist/css/6874.190253af05cded53.css" />
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        
+        
+      <![endif]-->
+    
+  </head>
+
+  <body data-invenio-config='{"isMathJaxEnabled": "//cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js?config=TeX-AMS-MML_HTMLorMML"}'  itemscope itemtype="http://schema.org/WebPage" data-spy="scroll" data-target=".scrollspy-target">
+      <a id="skip-to-main" class="ui button primary ml-5 mt-5 skip-link" href="#main">Skip to main</a>
+      <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+    
+
+<div>
+  <header class="theme header">
+
+    <div class="outer-navbar">
+      <div class="ui container invenio-header-container">
+        <nav id="invenio-nav" class="ui inverted menu borderless p-0">
+          <div class="item logo p-0">
+                      <a class="logo-link" href="https://zenodo.org/">
+                      <img class="ui image rdm-logo"
+                            src="/static/images/invenio-rdm.svg"
+                            alt="Zenodo home"/>
+                    </a>
+          </div>
+
+          <div id="rdm-burger-toggle">
+            <button
+              id="rdm-burger-menu-icon"
+              class="ui button transparent"
+              aria-label="Menu"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-controls="invenio-menu"
+            >
+              <span class="navicon" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <nav
+            id="invenio-menu"
+            aria-labelledby="rdm-burger-menu-icon"
+            class="ui fluid menu borderless mobile-hidden"
+          >
+            <button
+              id="rdm-close-burger-menu-icon"
+              class="ui button transparent"
+              aria-label="Close menu"
+            >
+              <span class="navicon" aria-hidden="true"></span>
+            </button>
+
+    
+        
+          
+        
+    
+      <div class="item p-0 search-bar">
+        <div id="header-search-bar" data-options='[{"key": "communities", "text": "In this community", "value": "/communities/forecasting/records"}, {"key": "records", "text": "All Zenodo", "value": "/search"}]'>
+          <div class="ui fluid search">
+            <div class="ui icon input">
+              <input
+                autocomplete="off"
+                aria-label="Search records"
+                placeholder="Search records..."
+                type="text"
+                tabindex="0"
+                class="prompt"
+                value=""
+              >
+              <button class="ui icon button right-floated search" aria-label="Search">
+                <i aria-hidden="true" class="search icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+                  <div class="item">
+                    <a href="/communities">Communities</a>
+                  </div>
+
+              
+                <div class="item">
+                  <a href="/me/uploads">My dashboard</a>
+                </div>
+              
+              <div class="right menu item">
+    <form>
+      <a
+        href="/login/?next=/records/4656719"
+        class="ui button auth-button" aria-busy="false" aria-live="polite" aria-label="Log in"
+      >
+        <i class="sign-in icon auth-icon" aria-hidden="true"></i>
+        Log in
+      </a>
+      
+        <a href="/signup/" class="ui button signup">
+          <i class="edit outline icon"></i>
+          Sign up
+        </a>
+      
+    </form>
+              </div>
+          </nav>
+        </nav>
+      </div>
+    </div>
+      
+      
+    
+      
+    
+    
+  </header>
+</div>
+
+  <main id="main">
+    <div class="invenio-page-body">
+<span id="detail-share-btn-require-link-expiration"
+        data-share-btn-require-link-expiration='false'>
+
+  <section id="banners" class="banners" aria-label="Information banner">
+    <!-- COMMUNITY HEADER: hide it when displaying the submission request -->
+    
+      
+        
+        
+          <div
+            class="ui fluid container page-subheader-outer with-submenu compact ml-0-mobile mr-0-mobile">
+            <div class="ui container page-subheader">
+              <div class="page-subheader-element">
+                <img
+                  class="ui rounded image community-header-logo"
+                  src="https://zenodo.org/api/communities/fd051f82-7fbf-46af-91a4-d2ba264463ed/logo"
+                  alt=""
+                />
+              </div>
+              <div class="page-subheader-element">
+                <div class="ui header">
+                  <a
+                  href="/communities/forecasting/records" class="ui small header">
+                    Monash Time Series Forecasting Repository
+                  </a>
+                  <!-- Show the icon for subcommunities -->
+                  
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        
+      
+    
+    <!-- /COMMUNITY HEADER -->
+
+    <!-- PREVIEW HEADER -->
+    
+    <!-- /PREVIEW HEADER -->
+
+    
+  </section>
+
+
+  <div class="ui container">
+    <div class="ui relaxed grid mt-5">
+      <div class="two column row top-padded">
+
+        
+        <article
+          class="sixteen wide tablet eleven wide computer column main-record-content">
+          
+
+              
+
+              
+
+              <section id="record-info"
+                       aria-label="Publication date and version number">
+                <div class="ui grid middle aligned">
+                  <div class="two column row">
+                    <div class="left floated left aligned column">
+                      <span class="ui" title="Publication date">
+                        Published June 14, 2020
+                      </span>
+                      <span
+                        class="label text-muted"> | Version 4</span>
+                    </div>
+                    <div class="right floated right aligned column">
+
+                      
+                      
+                        
+                          
+                        
+                        
+                          
+                        
+                        <a href="/communities/forecasting/records?q=&amp;f=resource_type%3Adataset"
+                           role="note"
+                           class="ui label horizontal small neutral mb-5"
+                           aria-label="Resource type"
+                        >
+                          Dataset
+                        </a>
+                      
+
+                      <span role="note"
+                            class="ui label horizontal small access-status open mb-5"
+                            data-tooltip="The record and files are publicly accessible."
+                            data-inverted=""
+                            aria-label="Access status"
+                      >
+                        
+                          <i class="icon unlock"
+                             aria-hidden="true"></i>
+                        
+                        <span
+                          aria-label="The record and files are publicly accessible.">
+                          Open
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <div class="ui divider hidden"></div><section id="record-title-section"
+                       aria-label="Record title, authors and contributors">
+                <h1 id="record-title"
+                    class="wrap-overflowing-text">KDD Cup Dataset (with Missing Values)</h1>
+
+                
+                  <section id="creatibutors"
+                           aria-label="Authors and contributors"><div class="ui grid">
+
+  
+    <div id="creators-section" class="row ui accordion affiliations">
+      <div class="sixteen wide mobile twelve wide tablet thirteen wide computer column">
+        <h3 class="sr-only">Authors/Creators</h3>
+        <ul class="creatibutors">
+          
+  
+  <li class="creatibutor-wrap separated"
+      data-affiliation-refs="1"
+      data-affiliations="PhD Student at Monash University">
+    <a class="ui creatibutor-link"
+      
+        data-tooltip="PhD Student at Monash University"
+        data-position="bottom center"
+      
+      href="/search?q=metadata.creators.person_or_org.name:%22Godahewa,+Rakshitha%22"
+    >
+      <span class="creatibutor-name">Godahewa, Rakshitha</span><sup class="font-tiny">1</sup></a>
+  
+
+  
+    
+      
+        
+        <a href="https://orcid.org/0000-0002-1333-7249"
+           aria-label="Godahewa, Rakshitha's ORCID profile"
+           title="Godahewa, Rakshitha's ORCID profile">
+          <img class="ml-5 inline-id-icon"
+               src="/static/images/orcid.svg"
+               alt="ORCID icon"/>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+  
+</li>
+  
+  <li class="creatibutor-wrap separated"
+      data-affiliation-refs="2"
+      data-affiliations="Lecturer at Monash University">
+    <a class="ui creatibutor-link"
+      
+        data-tooltip="Lecturer at Monash University"
+        data-position="bottom center"
+      
+      href="/search?q=metadata.creators.person_or_org.name:%22Bergmeir,+Christoph%22"
+    >
+      <span class="creatibutor-name">Bergmeir, Christoph</span><sup class="font-tiny">2</sup></a>
+  
+
+  
+    
+      
+        
+        <a href="https://orcid.org/0000-0002-3665-9021"
+           aria-label="Bergmeir, Christoph's ORCID profile"
+           title="Bergmeir, Christoph's ORCID profile">
+          <img class="ml-5 inline-id-icon"
+               src="/static/images/orcid.svg"
+               alt="ORCID icon"/>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+  
+</li>
+  
+  <li class="creatibutor-wrap separated"
+      data-affiliation-refs="3"
+      data-affiliations="Professor at Monash University">
+    <a class="ui creatibutor-link"
+      
+        data-tooltip="Professor at Monash University"
+        data-position="bottom center"
+      
+      href="/search?q=metadata.creators.person_or_org.name:%22Webb,+Geoff%22"
+    >
+      <span class="creatibutor-name">Webb, Geoff</span><sup class="font-tiny">3</sup></a>
+  
+
+  
+    
+      
+        
+        <a href="https://orcid.org/0000-0001-9963-5169"
+           aria-label="Webb, Geoff's ORCID profile"
+           title="Webb, Geoff's ORCID profile">
+          <img class="ml-5 inline-id-icon"
+               src="/static/images/orcid.svg"
+               alt="ORCID icon"/>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+  
+</li>
+  
+  <li class="creatibutor-wrap separated"
+      data-affiliation-refs="3"
+      data-affiliations="Professor at Monash University">
+    <a class="ui creatibutor-link"
+      
+        data-tooltip="Professor at Monash University"
+        data-position="bottom center"
+      
+      href="/search?q=metadata.creators.person_or_org.name:%22Hyndman,+Rob%22"
+    >
+      <span class="creatibutor-name">Hyndman, Rob</span><sup class="font-tiny">3</sup></a>
+  
+
+  
+    
+      
+        
+        <a href="https://orcid.org/0000-0002-2140-5352"
+           aria-label="Hyndman, Rob's ORCID profile"
+           title="Hyndman, Rob's ORCID profile">
+          <img class="ml-5 inline-id-icon"
+               src="/static/images/orcid.svg"
+               alt="ORCID icon"/>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+  
+</li>
+  
+  <li class="creatibutor-wrap separated"
+      data-affiliation-refs="4"
+      data-affiliations="Lecturer at University of Sydney">
+    <a class="ui creatibutor-link"
+      
+        data-tooltip="Lecturer at University of Sydney"
+        data-position="bottom center"
+      
+      href="/search?q=metadata.creators.person_or_org.name:%22Montero-Manso,+Pablo%22"
+    >
+      <span class="creatibutor-name">Montero-Manso, Pablo</span><sup class="font-tiny">4</sup></a>
+  
+
+  
+    
+      
+        
+        <a href="https://orcid.org/0000-0003-3816-0985"
+           aria-label="Montero-Manso, Pablo's ORCID profile"
+           title="Montero-Manso, Pablo's ORCID profile">
+          <img class="ml-5 inline-id-icon"
+               src="/static/images/orcid.svg"
+               alt="ORCID icon"/>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+  
+</li>
+  
+        </ul>
+      </div>
+
+      
+        
+<div id="creators-affiliations-title"
+     class="ui sixteen wide tablet three wide computer column title right aligned bottom aligned">
+  <button class="ui affiliations-button trigger button mini mr-0"
+          aria-controls="creators-affiliations"
+          data-open-text="Show affiliations"
+          data-close-text="Hide affiliations"
+          aria-expanded="false"
+  >
+    Show affiliations
+  </button>
+</div>
+
+<section class="ui sixteen wide column content" id="creators-affiliations" aria-label="Affiliations for creators">
+  
+  <ul>
+    
+    <li data-affiliation-ref="1">
+      1.
+
+      
+
+      PhD Student at Monash University
+    </li>
+    
+    <li data-affiliation-ref="2">
+      2.
+
+      
+
+      Lecturer at Monash University
+    </li>
+    
+    <li data-affiliation-ref="3">
+      3.
+
+      
+
+      Professor at Monash University
+    </li>
+    
+    <li data-affiliation-ref="4">
+      4.
+
+      
+
+      Lecturer at University of Sydney
+    </li>
+    
+  </ul>
+
+</section>
+
+      
+    </div>
+  
+
+  
+
+</div>
+                  </section>
+                
+              </section>
+
+
+
+  <section id="description" class="rel-mt-2 rich-input-content" aria-label="Record description">
+    <h2 id="description-heading" class="sr-only">Description</h2>
+    
+    <div style="word-wrap: break-word;">
+      <p>This dataset was used in the KDD Cup 2018 forecasting competition.&nbsp;It contains long hourly time series representing the air quality levels in 59 stations in 2 cities: Beijing (35 stations) and London (24 stations) from 01/01/2017 to 31/03/2018.&nbsp;The air quality level is represented in multiple measurements such as PM2.5, PM10, NO2, CO, O3 and SO2.</p>
+
+<p>The dataset uploaded here contains 270 hourly time series which have been categorized using city, station name and air quality measurement.</p>
+    </div>
+  </section>
+
+
+<section
+      id="record-files" class="rel-mt-2 rel-mb-3"
+      aria-label="Files"
+    ><h2 id="files-heading">Files</h2>
+            
+  <div class="ui accordion panel mb-10 open" href="#files-preview-accordion-panel">
+    <h3 class="active title panel-heading open m-0">
+      <div
+        role="button"
+        id="files-preview-accordion-trigger"
+        aria-controls="files-preview-accordion-panel"
+        aria-expanded="true"
+        tabindex="0"
+        class="trigger"
+        aria-label="File preview"
+      >
+        <span id="preview-file-title">kdd_cup_2018_dataset_with_missing_values.zip</span>
+        <i class="angle right icon" aria-hidden="true"></i>
+      </div>
+    </h3>
+    <div
+      role="region"
+      id="files-preview-accordion-panel"
+      aria-labelledby="files-preview-accordion-trigger"
+      class="active content preview-container pt-0 open"
+    >
+      <div>
+        
+  
+  <iframe
+    title="Preview"
+    class="preview-iframe"
+    id="preview-iframe"
+    name="preview-iframe"
+    src="/records/4656719/preview/kdd_cup_2018_dataset_with_missing_values.zip?include_deleted=0"
+    tabindex="-1"
+  >
+  </iframe>
+      </div>
+    </div>
+  </div>
+  <div class="ui accordion panel mb-10 open" href="#files-list-accordion-panel">
+    <h3 class="active title panel-heading open m-0">
+      <div role="button" id="files-list-accordion-trigger" aria-controls="files-list-accordion-panel" aria-expanded="true" tabindex="0" class="trigger">
+        Files
+        <small class="text-muted"> (2.5 MB)</small>
+        <i class="angle right icon" aria-hidden="true"></i>
+      </div>
+    </h3>
+
+    <div role="region" id="files-list-accordion-panel" aria-labelledby="files-list-accordion-trigger" class="active content pt-0">
+      
+      <div>
+        
+  <table id="file-list-table" class="ui striped table files fluid open">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Size</th>
+        <th class>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      
+        
+        
+        <tr>
+          <td class="ten wide">
+            <div>
+              <a href="/records/4656719/files/kdd_cup_2018_dataset_with_missing_values.zip?download=1">kdd_cup_2018_dataset_with_missing_values.zip</a>
+            </div>
+            <small class="ui text-muted font-tiny">md5:bd6af1e03c576b6c95c5e4b58aba831f
+            <div class="ui icon inline-block" data-tooltip="This is the file fingerprint (checksum), which can be used to verify the file integrity.">
+              <i class="question circle checksum icon"></i>
+            </div>
+            </small>
+          </td>
+	  <td>2.5 MB</td>
+          <td class="right aligned">
+            <span>
+              
+                <a role="button" class="ui compact mini button preview-link" href="/records/4656719/preview/kdd_cup_2018_dataset_with_missing_values.zip?include_deleted=0" target="preview-iframe" data-file-key="kdd_cup_2018_dataset_with_missing_values.zip">
+                  <i class="eye icon" aria-hidden="true"></i>Preview
+                </a>
+              <a role="button" class="ui compact mini button" href="/records/4656719/files/kdd_cup_2018_dataset_with_missing_values.zip?download=1">
+                <i class="download icon" aria-hidden="true"></i>Download
+              </a>
+            </span>
+          </td>
+        </tr>
+      
+    
+    </tbody>
+  </table>
+      </div>
+    </div>
+  </div>
+
+    </section>
+              
+
+  <section id="additional-details" class="rel-mt-2" aria-label="Additional record details">
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="record-details-heading">Additional details</h2>
+
+  <div class="ui divider"></div>
+
+  
+
+  
+
+  
+    
+      <div class="ui grid">
+        <div class="sixteen wide mobile four wide tablet three wide computer column">
+          <h3 class="ui header">Related works</h3>
+        </div>
+        <div class="sixteen wide mobile twelve wide tablet thirteen wide computer column">
+          
+  <dl class="details-list">
+      <dt class="ui tiny header">Cites</dt>
+      
+  
+    <dd>
+      
+        Dataset:
+      
+
+      
+      
+      
+        <a href="https://www.kdd.org/kdd2018/kdd-cup" target="_blank" title="Opens in new tab">
+          https://www.kdd.org/kdd2018/kdd-cup
+        </a>
+      
+
+      
+         (URL)
+      
+    </dd>
+  
+
+  </dl>
+
+        </div>
+      </div>
+    
+    <div class="ui divider"></div>
+  
+
+  
+
+  
+
+  
+
+  
+    
+      <div class="ui grid">
+        <div class="sixteen wide mobile four wide tablet three wide computer column">
+          <h3 class="ui header">References</h3>
+        </div>
+        <div class="sixteen wide mobile twelve wide tablet thirteen wide computer column">
+          
+  <ul class="ui bulleted list details-list">
+    
+      
+      
+      <li class="item">Kdd cup 2018. URL <a href="https://www.kdd.org/kdd2018/kdd-cup" rel="noopener">https://www.kdd.org/kdd2018/kdd-cup</a></li>
+    
+  </ul>
+
+        </div>
+      </div>
+    
+    <div class="ui divider"></div>
+  
+
+
+
+  
+
+  </section>
+    
+    <section
+      id="citations-search"
+      data-record-pids='{"doi": {"client": "datacite", "identifier": "10.5281/zenodo.4656719", "provider": "datacite"}, "oai": {"identifier": "oai:zenodo.org:4656719", "provider": "oai"}}'
+      data-record-parent-pids='{"doi": {"client": "datacite", "identifier": "10.5281/zenodo.3893503", "provider": "datacite"}}'
+      data-citations-endpoint="https://zenodo-broker.web.cern.ch/api/relationships"
+      aria-label="Record citations"
+      class="rel-mb-1"
+    >
+    </section>
+  
+        </article>
+
+        
+        <aside class="sixteen wide tablet five wide computer column sidebar"
+               aria-label="Record details">
+          
+
+
+
+
+<section id="metrics" aria-label="Metrics" class="ui segment rdm-sidebar sidebar-container">
+
+
+<div class="ui tiny two statistics rel-mt-1">
+  
+  
+
+  <div class="ui statistic">
+    <div class="value">4K</div>
+    <div class="label">
+      <i aria-hidden="true" class="eye icon"></i>
+      Views
+    </div>
+  </div>
+
+  <div class="ui statistic">
+    <div class="value">14K</div>
+    <div class="label">
+      <i aria-hidden="true" class="download icon"></i>
+      Downloads
+    </div>
+  </div>
+</div>
+
+<div class="ui accordion rel-mt-1 centered">
+  <div class="title trigger" tabindex="0">
+    <i class="caret right icon" aria-hidden="true"></i>
+    <span
+      data-open-text="Show more details"
+      data-close-text="Show less details"
+    >
+      Show more details
+    </span>
+  </div>
+
+  <div class="content">
+    <table id="record-statistics" class="ui definition table fluid">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="right aligned">All versions</th>
+          <th class="right aligned">This version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Views
+            <i
+              tabindex="0"
+              role="button"
+              style="position:relative"
+              class="popup-trigger question circle small icon"
+              aria-expanded="false"
+              aria-label="More info"
+              data-variation="mini inverted"
+            >
+            </i>
+            <p role="tooltip" class="popup-content ui flowing popup transition hidden">
+              Total views
+            </p>
+          </td>
+          <td data-label="All versions" class="right aligned">
+  
+    4,306
+  
+</td>
+          <td data-label="This version" class="right aligned">
+  
+    2,147
+  
+</td>
+        </tr>
+        <tr>
+          <td>
+            Downloads
+            <i
+              tabindex="0"
+              role="button"
+              style="position:relative"
+              class="popup-trigger question circle small icon"
+              aria-expanded="false"
+              aria-label="More info"
+              data-variation="mini inverted"
+            >
+            </i>
+            <p role="tooltip" class="popup-content ui flowing popup transition hidden">
+              Total downloads
+            </p>
+          </td>
+          <td data-label="All versions" class="right aligned">
+  
+    14,069
+  
+</td>
+          <td data-label="This version" class="right aligned">
+  
+    13,308
+  
+</td>
+        </tr>
+        <tr>
+          <td>
+            Data volume
+            <i
+              tabindex="0"
+              role="button"
+              style="position:relative"
+              class="popup-trigger question circle small icon"
+              aria-expanded="false"
+              aria-label="More info"
+              data-variation="mini inverted"
+            >
+            </i>
+            <p role="tooltip" class="popup-content ui flowing popup transition hidden">
+              Total data volume
+            </p>
+          </td>
+
+          <td data-label="All versions" class="right aligned">39.1 GB</td>
+          <td data-label="This version" class="right aligned">33.9 GB</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="text-align-center rel-mt-1">
+      <small>
+        <a href="https://zenodo.org/help/statistics">More info on how stats are collected....</a>
+      </small>
+    </p>
+  </div>
+
+</div>
+
+</section>
+
+<div class="sidebar-container">
+  <h2 class="ui medium top attached header mt-0">Versions</h2>
+  <div id="record-versions" class="ui segment rdm-sidebar bottom attached pl-0 pr-0 pt-0">
+    <div class="versions">
+      <div id="recordVersions" data-record='{"access": {"embargo": {"active": false, "reason": null}, "files": "public", "record": "public", "status": "open"}, "created": "2021-04-01T12:37:05.686635+00:00", "custom_fields": {}, "deletion_status": {"is_deleted": false, "status": "P"}, "expanded": {"parent": {"access": {"owned_by": {"active": null, "blocked_at": null, "confirmed_at": null, "email": "", "id": "106280", "is_current_user": false, "links": {"avatar": "https://zenodo.org/api/users/106280/avatar.svg", "records_html": "https://zenodo.org/search?q=parent.access.owned_by.user:106280", "self": "https://zenodo.org/api/users/106280"}, "profile": {"affiliations": "", "full_name": ""}, "username": "rakshitha", "verified_at": null}}, "communities": {"default": {"access": {"review_policy": "open", "visibility": "public"}, "id": "fd051f82-7fbf-46af-91a4-d2ba264463ed", "links": {"logo": "https://zenodo.org/api/communities/fd051f82-7fbf-46af-91a4-d2ba264463ed/logo"}, "metadata": {"description": null, "title": "Monash Time Series Forecasting Repository", "type": null}, "slug": "forecasting"}}}}, "files": {"count": 1, "enabled": true, "entries": {"kdd_cup_2018_dataset_with_missing_values.zip": {"access": {"hidden": false}, "checksum": "md5:bd6af1e03c576b6c95c5e4b58aba831f", "ext": "zip", "id": "8db7233f-90eb-4fa2-b453-dcbdb252c1c7", "key": "kdd_cup_2018_dataset_with_missing_values.zip", "links": {"container": "https://zenodo.org/api/records/4656719/files/kdd_cup_2018_dataset_with_missing_values.zip/container", "content": "https://zenodo.org/api/records/4656719/files/kdd_cup_2018_dataset_with_missing_values.zip/content", "self": "https://zenodo.org/api/records/4656719/files/kdd_cup_2018_dataset_with_missing_values.zip"}, "metadata": null, "mimetype": "application/zip", "size": 2456948, "storage_class": "L"}}, "order": [], "total_bytes": 2456948}, "id": "4656719", "is_draft": false, "is_published": true, "links": {"access": "https://zenodo.org/api/records/4656719/access", "access_grants": "https://zenodo.org/api/records/4656719/access/grants", "access_links": "https://zenodo.org/api/records/4656719/access/links", "access_request": "https://zenodo.org/api/records/4656719/access/request", "access_users": "https://zenodo.org/api/records/4656719/access/users", "communities": "https://zenodo.org/api/records/4656719/communities", "communities-suggestions": "https://zenodo.org/api/records/4656719/communities-suggestions", "doi": "https://doi.org/10.5281/zenodo.4656719", "draft": "https://zenodo.org/api/records/4656719/draft", "file_modification": "https://zenodo.org/api/records/4656719/file-modification", "files": "https://zenodo.org/api/records/4656719/files", "latest": "https://zenodo.org/api/records/4656719/versions/latest", "latest_html": "https://zenodo.org/records/4656719/latest", "media_files": "https://zenodo.org/api/records/4656719/media-files", "parent": "https://zenodo.org/api/records/3893503", "parent_doi": "https://doi.org/10.5281/zenodo.3893503", "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.3893503", "parent_html": "https://zenodo.org/records/3893503", "preview_html": "https://zenodo.org/records/4656719?preview=1", "quota_increase": "https://zenodo.org/api/records/4656719/quota-increase", "request_deletion": "https://zenodo.org/api/records/4656719/request-deletion", "requests": "https://zenodo.org/api/records/4656719/requests", "reserve_doi": "https://zenodo.org/api/records/4656719/draft/pids/doi", "self": "https://zenodo.org/api/records/4656719", "self_doi": "https://doi.org/10.5281/zenodo.4656719", "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.4656719", "self_html": "https://zenodo.org/records/4656719", "self_iiif_manifest": "https://zenodo.org/api/iiif/record:4656719/manifest", "self_iiif_sequence": "https://zenodo.org/api/iiif/record:4656719/sequence/default", "versions": "https://zenodo.org/api/records/4656719/versions"}, "media_files": {"count": 0, "enabled": false, "entries": {}, "order": [], "total_bytes": 0}, "metadata": {"creators": [{"affiliations": [{"name": "PhD Student at Monash University"}], "person_or_org": {"family_name": "Godahewa", "given_name": "Rakshitha", "identifiers": [{"identifier": "0000-0002-1333-7249", "scheme": "orcid"}], "name": "Godahewa, Rakshitha", "type": "personal"}}, {"affiliations": [{"name": "Lecturer at Monash University"}], "person_or_org": {"family_name": "Bergmeir", "given_name": "Christoph", "identifiers": [{"identifier": "0000-0002-3665-9021", "scheme": "orcid"}], "name": "Bergmeir, Christoph", "type": "personal"}}, {"affiliations": [{"name": "Professor at Monash University"}], "person_or_org": {"family_name": "Webb", "given_name": "Geoff", "identifiers": [{"identifier": "0000-0001-9963-5169", "scheme": "orcid"}], "name": "Webb, Geoff", "type": "personal"}}, {"affiliations": [{"name": "Professor at Monash University"}], "person_or_org": {"family_name": "Hyndman", "given_name": "Rob", "identifiers": [{"identifier": "0000-0002-2140-5352", "scheme": "orcid"}], "name": "Hyndman, Rob", "type": "personal"}}, {"affiliations": [{"name": "Lecturer at University of Sydney"}], "person_or_org": {"family_name": "Montero-Manso", "given_name": "Pablo", "identifiers": [{"identifier": "0000-0003-3816-0985", "scheme": "orcid"}], "name": "Montero-Manso, Pablo", "type": "personal"}}], "description": "\u003cp\u003eThis dataset was used in the KDD Cup 2018 forecasting competition.\u0026nbsp;It contains long hourly time series representing the air quality levels in 59 stations in 2 cities: Beijing (35 stations) and London (24 stations) from 01/01/2017 to 31/03/2018.\u0026nbsp;The air quality level is represented in multiple measurements such as PM2.5, PM10, NO2, CO, O3 and SO2.\u003c/p\u003e\n\n\u003cp\u003eThe dataset uploaded here contains 270 hourly time series which have been categorized using city, station name and air quality measurement.\u003c/p\u003e", "languages": [{"id": "eng", "title": {"en": "English"}}], "publication_date": "2020-06-14", "publisher": "Zenodo", "references": [{"reference": "Kdd cup 2018. URL https://www.kdd.org/kdd2018/kdd-cup"}], "related_identifiers": [{"identifier": "https://www.kdd.org/kdd2018/kdd-cup", "relation_type": {"id": "cites", "title": {"de": "Zitiert", "en": "Cites"}}, "resource_type": {"id": "dataset", "title": {"de": "Datensatz", "en": "Dataset"}}, "scheme": "url"}], "resource_type": {"id": "dataset", "title": {"de": "Datensatz", "en": "Dataset"}}, "rights": [{"description": {"en": "The Creative Commons Attribution license allows re-distribution and re-use of a licensed work on the condition that the creator is appropriately credited."}, "icon": "cc-by-icon", "id": "cc-by-4.0", "props": {"scheme": "spdx", "url": "https://creativecommons.org/licenses/by/4.0/legalcode"}, "title": {"en": "Creative Commons Attribution 4.0 International"}}], "subjects": [{"subject": "KDD Cup"}, {"subject": "forecasting"}, {"subject": "hourly series"}], "title": "KDD Cup Dataset (with Missing Values)", "version": "4"}, "parent": {"access": {"owned_by": {"user": "106280"}, "settings": {"accept_conditions_text": null, "allow_guest_requests": false, "allow_user_requests": false, "secret_link_expiration": 0}}, "communities": {"default": "fd051f82-7fbf-46af-91a4-d2ba264463ed", "entries": [{"access": {"member_policy": "open", "members_visibility": "public", "record_submission_policy": "open", "review_policy": "open", "visibility": "public"}, "children": {"allow": false}, "created": "2020-06-08T00:11:07.720311+00:00", "custom_fields": {}, "deletion_status": {"is_deleted": false, "status": "P"}, "id": "fd051f82-7fbf-46af-91a4-d2ba264463ed", "links": {}, "metadata": {"curation_policy": "", "page": "\u003cp\u003eThis repository contains a set of publicly available benchmark datasets used in the time series forecasting research space. The datasets are intended to use only for research purpose.\u003c/p\u003e\r\n\r\n\u003cp\u003eAll datasets are available in .tsf format which is a new format we introduce to store time series data pioneered by the\u0026nbsp;sktime\u0026nbsp;\u003ca href=\"https://alan-turing-institute.github.io/sktime/examples/loading_data.html\"\u003e.ts\u003c/a\u003e\u0026nbsp;format. The\u0026nbsp;examples of loading the data into the R\u0026nbsp;\u003ca href=\"https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html\"\u003etsibble\u003c/a\u003e format and Python \u003ca href=\"https://pandas.pydata.org/pandas-docs/stable/reference/frame.html\"\u003epandas dataframe\u003c/a\u003e\u0026nbsp;format are\u0026nbsp;available in our \u003ca href=\"https://github.com/rakshitha123/TSForecasting\"\u003egithub repository\u003c/a\u003e. For more details, please refer to our website:\u0026nbsp;\u003ca href=\"https://forecastingdata.org/\"\u003ehttps://forecastingdata.org/\u003c/a\u003e\u0026nbsp;and paper: \u003ca href=\"https://openreview.net/pdf?id=wEc1mgAjU-\"\u003ehttps://openreview.net/pdf?id=wEc1mgAjU-\u003c/a\u003e.\u003c/p\u003e", "title": "Monash Time Series Forecasting Repository"}, "revision_id": 0, "slug": "forecasting", "updated": "2022-07-14T07:07:02.430758+00:00"}], "ids": ["fd051f82-7fbf-46af-91a4-d2ba264463ed"]}, "id": "3893503", "pids": {"doi": {"client": "datacite", "identifier": "10.5281/zenodo.3893503", "provider": "datacite"}}}, "pids": {"doi": {"client": "datacite", "identifier": "10.5281/zenodo.4656719", "provider": "datacite"}, "oai": {"identifier": "oai:zenodo.org:4656719", "provider": "oai"}}, "revision_id": 2, "stats": {"all_versions": {"data_volume": 39087157093.0, "downloads": 14572, "unique_downloads": 14069, "unique_views": 4306, "views": 4550}, "this_version": {"data_volume": 33856743440.0, "downloads": 13780, "unique_downloads": 13308, "unique_views": 2147, "views": 2278}}, "status": "published", "swh": {}, "ui": {"access_status": {"description_l10n": "The record and files are publicly accessible.", "embargo_date_l10n": null, "icon": "unlock", "id": "open", "message_class": "", "title_l10n": "Open"}, "created_date_l10n_long": "April 1, 2021", "creators": {"affiliations": [[1, "PhD Student at Monash University", null], [2, "Lecturer at Monash University", null], [3, "Professor at Monash University", null], [4, "Lecturer at University of Sydney", null]], "creators": [{"affiliations": [[1, "PhD Student at Monash University"]], "person_or_org": {"family_name": "Godahewa", "given_name": "Rakshitha", "identifiers": [{"identifier": "0000-0002-1333-7249", "scheme": "orcid"}], "name": "Godahewa, Rakshitha", "type": "personal"}}, {"affiliations": [[2, "Lecturer at Monash University"]], "person_or_org": {"family_name": "Bergmeir", "given_name": "Christoph", "identifiers": [{"identifier": "0000-0002-3665-9021", "scheme": "orcid"}], "name": "Bergmeir, Christoph", "type": "personal"}}, {"affiliations": [[3, "Professor at Monash University"]], "person_or_org": {"family_name": "Webb", "given_name": "Geoff", "identifiers": [{"identifier": "0000-0001-9963-5169", "scheme": "orcid"}], "name": "Webb, Geoff", "type": "personal"}}, {"affiliations": [[3, "Professor at Monash University"]], "person_or_org": {"family_name": "Hyndman", "given_name": "Rob", "identifiers": [{"identifier": "0000-0002-2140-5352", "scheme": "orcid"}], "name": "Hyndman, Rob", "type": "personal"}}, {"affiliations": [[4, "Lecturer at University of Sydney"]], "person_or_org": {"family_name": "Montero-Manso", "given_name": "Pablo", "identifiers": [{"identifier": "0000-0003-3816-0985", "scheme": "orcid"}], "name": "Montero-Manso, Pablo", "type": "personal"}}]}, "custom_fields": {}, "description_stripped": "This dataset was used in the KDD Cup 2018 forecasting competition.\u00a0It contains long hourly time series representing the air quality levels in 59 stations in 2 cities: Beijing (35 stations) and London (24 stations) from 01/01/2017 to 31/03/2018.\u00a0The air quality level is represented in multiple measurements such as PM2.5, PM10, NO2, CO, O3 and SO2.\n\n\nThe dataset uploaded here contains 270 hourly time series which have been categorized using city, station name and air quality measurement.", "is_draft": false, "languages": [{"id": "eng", "title_l10n": "English"}], "publication_date_l10n_long": "June 14, 2020", "publication_date_l10n_medium": "Jun 14, 2020", "related_identifiers": [{"identifier": "https://www.kdd.org/kdd2018/kdd-cup", "relation_type": {"id": "cites", "title_l10n": "Cites"}, "resource_type": {"id": "dataset", "title_l10n": "Dataset"}, "scheme": "url"}], "resource_type": {"id": "dataset", "title_l10n": "Dataset"}, "rights": [{"description_l10n": "The Creative Commons Attribution license allows re-distribution and re-use of a licensed work on the condition that the creator is appropriately credited.", "icon": "cc-by-icon", "id": "cc-by-4.0", "props": {"scheme": "spdx", "url": "https://creativecommons.org/licenses/by/4.0/legalcode"}, "title_l10n": "Creative Commons Attribution 4.0 International"}], "updated_date_l10n_long": "April 2, 2021", "version": "4"}, "updated": "2021-04-02T00:27:20.835612+00:00", "versions": {"index": 4, "is_latest": true}}' data-preview='false'>
+        <div class="rel-p-1"></div>
+        <div class="ui fluid placeholder rel-mr-1 rel-ml-1"></div>
+        <div class="header">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><div class="sidebar-container">
+  <h2 class="ui small top attached header">External resources</h2>
+  <dl id="external-resource" aria-label="External resources" class="ui bottom attached segment rdm-sidebar external resource details-list">
+
+    <dt class="ui tiny header">Indexed in</dt>
+      <ul class="ui list no-bullet m-0">
+              <li class="item flex align-items-center">
+
+                
+                  <img class="ui image" src="/static/images/openaire.svg" alt="" width="32">
+                
+
+                <div class="content">
+                  <a
+                    class="header"
+                    href="https://explore.openaire.eu/search/result?pid=10.5281/zenodo.4656719"
+                    target="_blank"
+                    rel="noreferrer"
+                  >OpenAIRE
+                  </a>
+
+                  </div>
+              </li></ul></dl>
+</div>
+<div
+  id="sidebar-communities-manage"
+  data-user-communities-memberships='{}'
+  data-record-community-endpoint='https://zenodo.org/api/records/4656719/communities'
+  data-record-community-search-endpoint='https://zenodo.org/api/records/4656719/communities-suggestions'
+  data-record-community-search-config='{"aggs": [{"aggName": "type", "field": "type", "title": "Type"}, {"aggName": "funder", "field": "metadata.funding.funder", "title": "Funders"}, {"aggName": "organization", "field": "metadata.organizations", "title": "Organizations"}], "appId": "InvenioAppRdm.RecordCommunitiesSuggestions", "defaultSortingOnEmptyQueryString": [{"sortBy": "newest"}], "initialQueryState": {"filters": [], "hiddenParams": null, "layout": "list", "page": 1, "size": 10, "sortBy": "bestmatch"}, "layoutOptions": {"gridView": false, "listView": true}, "paginationOptions": {"defaultValue": 10, "maxTotalResults": 10000, "resultsPerPage": [{"text": "10", "value": 10}, {"text": "20", "value": 20}]}, "searchApi": {"axios": {"headers": {"Accept": "application/vnd.inveniordm.v1+json"}, "url": "https://zenodo.org/api/records/4656719/communities-suggestions", "withCredentials": true}, "invenio": {"requestSerializer": "InvenioRecordsResourcesRequestSerializer"}}, "sortOptions": [{"sortBy": "bestmatch", "text": "Best match"}, {"sortBy": "newest", "text": "Newest"}, {"sortBy": "oldest", "text": "Oldest"}], "sortOrderDisabled": true}'
+  data-record-user-community-search-endpoint=''
+  data-record-user-community-search-config='{"aggs": [{"aggName": "type", "field": "type", "title": "Type"}, {"aggName": "funder", "field": "metadata.funding.funder", "title": "Funders"}, {"aggName": "organization", "field": "metadata.organizations", "title": "Organizations"}], "appId": "InvenioAppRdm.RecordUserCommunitiesSuggestions", "defaultSortingOnEmptyQueryString": [{"sortBy": "newest"}], "initialQueryState": {"filters": [], "hiddenParams": [["membership", "true"]], "layout": "list", "page": 1, "size": 10, "sortBy": "bestmatch"}, "layoutOptions": {"gridView": false, "listView": true}, "paginationOptions": {"defaultValue": 10, "maxTotalResults": 10000, "resultsPerPage": [{"text": "10", "value": 10}, {"text": "20", "value": 20}]}, "searchApi": {"axios": {"headers": {"Accept": "application/vnd.inveniordm.v1+json"}, "url": "https://zenodo.org/api/records/4656719/communities-suggestions", "withCredentials": true}, "invenio": {"requestSerializer": "InvenioRecordsResourcesRequestSerializer"}}, "sortOptions": [{"sortBy": "bestmatch", "text": "Best match"}, {"sortBy": "newest", "text": "Newest"}, {"sortBy": "oldest", "text": "Oldest"}], "sortOrderDisabled": true}'
+  data-pending-communities-search-config='{"aggs": [{"aggName": "type", "field": "type", "title": "Type"}, {"aggName": "status", "field": "status", "title": "Status"}], "appId": "InvenioAppRdm.RecordRequests", "defaultSortingOnEmptyQueryString": [{"sortBy": "newest"}], "initialQueryState": {"filters": [], "hiddenParams": [["expand", "1"], ["is_open", "true"], ["type", "community-inclusion"], ["type", "community-submission"]], "layout": "list", "page": 1, "size": 10, "sortBy": "bestmatch"}, "layoutOptions": {"gridView": false, "listView": true}, "paginationOptions": {"defaultValue": 10, "maxTotalResults": 10000, "resultsPerPage": [{"text": "10", "value": 10}, {"text": "20", "value": 20}, {"text": "50", "value": 50}]}, "searchApi": {"axios": {"headers": {"Accept": "application/json"}, "url": "https://zenodo.org/api/records/4656719/requests", "withCredentials": true}, "invenio": {"requestSerializer": "InvenioRecordsResourcesRequestSerializer"}}, "sortOptions": [{"sortBy": "bestmatch", "text": "Best match"}, {"sortBy": "newest", "text": "Newest"}, {"sortBy": "oldest", "text": "Oldest"}, {"sortBy": "newestactivity", "text": "Newest activity"}, {"sortBy": "oldestactivity", "text": "Oldest activity"}], "sortOrderDisabled": true}'
+  data-permissions='{"can_edit": false, "can_immediately_delete": false, "can_manage": false, "can_media_read_files": true, "can_moderate": false, "can_new_version": false, "can_read_files": true, "can_remove_community_from_record": false, "can_request_deletion": false, "can_review": false, "can_update_draft": false, "can_view": false, "removable_community_ids": []}'
+  data-record='{"access": {"embargo": {"active": false, "reason": null}, "files": "public", "record": "public", "status": "open"}, "created": "2021-04-01T12:37:05.686635+00:00", "custom_fields": {}, "deletion_status": {"is_deleted": false, "status": "P"}, "expanded": {"parent": {"access": {"owned_by": {"active": null, "blocked_at": null, "confirmed_at": null, "email": "", "id": "106280", "is_current_user": false, "links": {"avatar": "https://zenodo.org/api/users/106280/avatar.svg", "records_html": "https://zenodo.org/search?q=parent.access.owned_by.user:106280", "self": "https://zenodo.org/api/users/106280"}, "profile": {"affiliations": "", "full_name": ""}, "username": "rakshitha", "verified_at": null}}, "communities": {"default": {"access": {"review_policy": "open", "visibility": "public"}, "id": "fd051f82-7fbf-46af-91a4-d2ba264463ed", "links": {"logo": "https://zenodo.org/api/communities/fd051f82-7fbf-46af-91a4-d2ba264463ed/logo"}, "metadata": {"description": null, "title": "Monash Time Series Forecasting Repository", "type": null}, "slug": "forecasting"}}}}, "files": {"count": 1, "enabled": true, "entries": {"kdd_cup_2018_dataset_with_missing_values.zip": {"access": {"hidden": false}, "checksum": "md5:bd6af1e03c576b6c95c5e4b58aba831f", "ext": "zip", "id": "8db7233f-90eb-4fa2-b453-dcbdb252c1c7", "key": "kdd_cup_2018_dataset_with_missing_values.zip", "links": {"container": "https://zenodo.org/api/records/4656719/files/kdd_cup_2018_dataset_with_missing_values.zip/container", "content": "https://zenodo.org/api/records/4656719/files/kdd_cup_2018_dataset_with_missing_values.zip/content", "self": "https://zenodo.org/api/records/4656719/files/kdd_cup_2018_dataset_with_missing_values.zip"}, "metadata": null, "mimetype": "application/zip", "size": 2456948, "storage_class": "L"}}, "order": [], "total_bytes": 2456948}, "id": "4656719", "is_draft": false, "is_published": true, "links": {"access": "https://zenodo.org/api/records/4656719/access", "access_grants": "https://zenodo.org/api/records/4656719/access/grants", "access_links": "https://zenodo.org/api/records/4656719/access/links", "access_request": "https://zenodo.org/api/records/4656719/access/request", "access_users": "https://zenodo.org/api/records/4656719/access/users", "communities": "https://zenodo.org/api/records/4656719/communities", "communities-suggestions": "https://zenodo.org/api/records/4656719/communities-suggestions", "doi": "https://doi.org/10.5281/zenodo.4656719", "draft": "https://zenodo.org/api/records/4656719/draft", "file_modification": "https://zenodo.org/api/records/4656719/file-modification", "files": "https://zenodo.org/api/records/4656719/files", "latest": "https://zenodo.org/api/records/4656719/versions/latest", "latest_html": "https://zenodo.org/records/4656719/latest", "media_files": "https://zenodo.org/api/records/4656719/media-files", "parent": "https://zenodo.org/api/records/3893503", "parent_doi": "https://doi.org/10.5281/zenodo.3893503", "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.3893503", "parent_html": "https://zenodo.org/records/3893503", "preview_html": "https://zenodo.org/records/4656719?preview=1", "quota_increase": "https://zenodo.org/api/records/4656719/quota-increase", "request_deletion": "https://zenodo.org/api/records/4656719/request-deletion", "requests": "https://zenodo.org/api/records/4656719/requests", "reserve_doi": "https://zenodo.org/api/records/4656719/draft/pids/doi", "self": "https://zenodo.org/api/records/4656719", "self_doi": "https://doi.org/10.5281/zenodo.4656719", "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.4656719", "self_html": "https://zenodo.org/records/4656719", "self_iiif_manifest": "https://zenodo.org/api/iiif/record:4656719/manifest", "self_iiif_sequence": "https://zenodo.org/api/iiif/record:4656719/sequence/default", "versions": "https://zenodo.org/api/records/4656719/versions"}, "media_files": {"count": 0, "enabled": false, "entries": {}, "order": [], "total_bytes": 0}, "metadata": {"creators": [{"affiliations": [{"name": "PhD Student at Monash University"}], "person_or_org": {"family_name": "Godahewa", "given_name": "Rakshitha", "identifiers": [{"identifier": "0000-0002-1333-7249", "scheme": "orcid"}], "name": "Godahewa, Rakshitha", "type": "personal"}}, {"affiliations": [{"name": "Lecturer at Monash University"}], "person_or_org": {"family_name": "Bergmeir", "given_name": "Christoph", "identifiers": [{"identifier": "0000-0002-3665-9021", "scheme": "orcid"}], "name": "Bergmeir, Christoph", "type": "personal"}}, {"affiliations": [{"name": "Professor at Monash University"}], "person_or_org": {"family_name": "Webb", "given_name": "Geoff", "identifiers": [{"identifier": "0000-0001-9963-5169", "scheme": "orcid"}], "name": "Webb, Geoff", "type": "personal"}}, {"affiliations": [{"name": "Professor at Monash University"}], "person_or_org": {"family_name": "Hyndman", "given_name": "Rob", "identifiers": [{"identifier": "0000-0002-2140-5352", "scheme": "orcid"}], "name": "Hyndman, Rob", "type": "personal"}}, {"affiliations": [{"name": "Lecturer at University of Sydney"}], "person_or_org": {"family_name": "Montero-Manso", "given_name": "Pablo", "identifiers": [{"identifier": "0000-0003-3816-0985", "scheme": "orcid"}], "name": "Montero-Manso, Pablo", "type": "personal"}}], "description": "\u003cp\u003eThis dataset was used in the KDD Cup 2018 forecasting competition.\u0026nbsp;It contains long hourly time series representing the air quality levels in 59 stations in 2 cities: Beijing (35 stations) and London (24 stations) from 01/01/2017 to 31/03/2018.\u0026nbsp;The air quality level is represented in multiple measurements such as PM2.5, PM10, NO2, CO, O3 and SO2.\u003c/p\u003e\n\n\u003cp\u003eThe dataset uploaded here contains 270 hourly time series which have been categorized using city, station name and air quality measurement.\u003c/p\u003e", "languages": [{"id": "eng", "title": {"en": "English"}}], "publication_date": "2020-06-14", "publisher": "Zenodo", "references": [{"reference": "Kdd cup 2018. URL https://www.kdd.org/kdd2018/kdd-cup"}], "related_identifiers": [{"identifier": "https://www.kdd.org/kdd2018/kdd-cup", "relation_type": {"id": "cites", "title": {"de": "Zitiert", "en": "Cites"}}, "resource_type": {"id": "dataset", "title": {"de": "Datensatz", "en": "Dataset"}}, "scheme": "url"}], "resource_type": {"id": "dataset", "title": {"de": "Datensatz", "en": "Dataset"}}, "rights": [{"description": {"en": "The Creative Commons Attribution license allows re-distribution and re-use of a licensed work on the condition that the creator is appropriately credited."}, "icon": "cc-by-icon", "id": "cc-by-4.0", "props": {"scheme": "spdx", "url": "https://creativecommons.org/licenses/by/4.0/legalcode"}, "title": {"en": "Creative Commons Attribution 4.0 International"}}], "subjects": [{"subject": "KDD Cup"}, {"subject": "forecasting"}, {"subject": "hourly series"}], "title": "KDD Cup Dataset (with Missing Values)", "version": "4"}, "parent": {"access": {"owned_by": {"user": "106280"}, "settings": {"accept_conditions_text": null, "allow_guest_requests": false, "allow_user_requests": false, "secret_link_expiration": 0}}, "communities": {"default": "fd051f82-7fbf-46af-91a4-d2ba264463ed", "entries": [{"access": {"member_policy": "open", "members_visibility": "public", "record_submission_policy": "open", "review_policy": "open", "visibility": "public"}, "children": {"allow": false}, "created": "2020-06-08T00:11:07.720311+00:00", "custom_fields": {}, "deletion_status": {"is_deleted": false, "status": "P"}, "id": "fd051f82-7fbf-46af-91a4-d2ba264463ed", "links": {}, "metadata": {"curation_policy": "", "page": "\u003cp\u003eThis repository contains a set of publicly available benchmark datasets used in the time series forecasting research space. The datasets are intended to use only for research purpose.\u003c/p\u003e\r\n\r\n\u003cp\u003eAll datasets are available in .tsf format which is a new format we introduce to store time series data pioneered by the\u0026nbsp;sktime\u0026nbsp;\u003ca href=\"https://alan-turing-institute.github.io/sktime/examples/loading_data.html\"\u003e.ts\u003c/a\u003e\u0026nbsp;format. The\u0026nbsp;examples of loading the data into the R\u0026nbsp;\u003ca href=\"https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html\"\u003etsibble\u003c/a\u003e format and Python \u003ca href=\"https://pandas.pydata.org/pandas-docs/stable/reference/frame.html\"\u003epandas dataframe\u003c/a\u003e\u0026nbsp;format are\u0026nbsp;available in our \u003ca href=\"https://github.com/rakshitha123/TSForecasting\"\u003egithub repository\u003c/a\u003e. For more details, please refer to our website:\u0026nbsp;\u003ca href=\"https://forecastingdata.org/\"\u003ehttps://forecastingdata.org/\u003c/a\u003e\u0026nbsp;and paper: \u003ca href=\"https://openreview.net/pdf?id=wEc1mgAjU-\"\u003ehttps://openreview.net/pdf?id=wEc1mgAjU-\u003c/a\u003e.\u003c/p\u003e", "title": "Monash Time Series Forecasting Repository"}, "revision_id": 0, "slug": "forecasting", "updated": "2022-07-14T07:07:02.430758+00:00"}], "ids": ["fd051f82-7fbf-46af-91a4-d2ba264463ed"]}, "id": "3893503", "pids": {"doi": {"client": "datacite", "identifier": "10.5281/zenodo.3893503", "provider": "datacite"}}}, "pids": {"doi": {"client": "datacite", "identifier": "10.5281/zenodo.4656719", "provider": "datacite"}, "oai": {"identifier": "oai:zenodo.org:4656719", "provider": "oai"}}, "revision_id": 2, "stats": {"all_versions": {"data_volume": 39087157093.0, "downloads": 14572, "unique_downloads": 14069, "unique_views": 4306, "views": 4550}, "this_version": {"data_volume": 33856743440.0, "downloads": 13780, "unique_downloads": 13308, "unique_views": 2147, "views": 2278}}, "status": "published", "swh": {}, "ui": {"access_status": {"description_l10n": "The record and files are publicly accessible.", "embargo_date_l10n": null, "icon": "unlock", "id": "open", "message_class": "", "title_l10n": "Open"}, "created_date_l10n_long": "April 1, 2021", "creators": {"affiliations": [[1, "PhD Student at Monash University", null], [2, "Lecturer at Monash University", null], [3, "Professor at Monash University", null], [4, "Lecturer at University of Sydney", null]], "creators": [{"affiliations": [[1, "PhD Student at Monash University"]], "person_or_org": {"family_name": "Godahewa", "given_name": "Rakshitha", "identifiers": [{"identifier": "0000-0002-1333-7249", "scheme": "orcid"}], "name": "Godahewa, Rakshitha", "type": "personal"}}, {"affiliations": [[2, "Lecturer at Monash University"]], "person_or_org": {"family_name": "Bergmeir", "given_name": "Christoph", "identifiers": [{"identifier": "0000-0002-3665-9021", "scheme": "orcid"}], "name": "Bergmeir, Christoph", "type": "personal"}}, {"affiliations": [[3, "Professor at Monash University"]], "person_or_org": {"family_name": "Webb", "given_name": "Geoff", "identifiers": [{"identifier": "0000-0001-9963-5169", "scheme": "orcid"}], "name": "Webb, Geoff", "type": "personal"}}, {"affiliations": [[3, "Professor at Monash University"]], "person_or_org": {"family_name": "Hyndman", "given_name": "Rob", "identifiers": [{"identifier": "0000-0002-2140-5352", "scheme": "orcid"}], "name": "Hyndman, Rob", "type": "personal"}}, {"affiliations": [[4, "Lecturer at University of Sydney"]], "person_or_org": {"family_name": "Montero-Manso", "given_name": "Pablo", "identifiers": [{"identifier": "0000-0003-3816-0985", "scheme": "orcid"}], "name": "Montero-Manso, Pablo", "type": "personal"}}]}, "custom_fields": {}, "description_stripped": "This dataset was used in the KDD Cup 2018 forecasting competition.\u00a0It contains long hourly time series representing the air quality levels in 59 stations in 2 cities: Beijing (35 stations) and London (24 stations) from 01/01/2017 to 31/03/2018.\u00a0The air quality level is represented in multiple measurements such as PM2.5, PM10, NO2, CO, O3 and SO2.\n\n\nThe dataset uploaded here contains 270 hourly time series which have been categorized using city, station name and air quality measurement.", "is_draft": false, "languages": [{"id": "eng", "title_l10n": "English"}], "publication_date_l10n_long": "June 14, 2020", "publication_date_l10n_medium": "Jun 14, 2020", "related_identifiers": [{"identifier": "https://www.kdd.org/kdd2018/kdd-cup", "relation_type": {"id": "cites", "title_l10n": "Cites"}, "resource_type": {"id": "dataset", "title_l10n": "Dataset"}, "scheme": "url"}], "resource_type": {"id": "dataset", "title_l10n": "Dataset"}, "rights": [{"description_l10n": "The Creative Commons Attribution license allows re-distribution and re-use of a licensed work on the condition that the creator is appropriately credited.", "icon": "cc-by-icon", "id": "cc-by-4.0", "props": {"scheme": "spdx", "url": "https://creativecommons.org/licenses/by/4.0/legalcode"}, "title_l10n": "Creative Commons Attribution 4.0 International"}], "updated_date_l10n_long": "April 2, 2021", "version": "4"}, "updated": "2021-04-02T00:27:20.835612+00:00", "versions": {"index": 4, "is_latest": true}}'
+  data-record-requests='{}'
+  class='sidebar-container'
+>
+
+  <h2 class="ui medium top attached header">Communities</h2>
+
+  <div class="ui segment bottom attached rdm-sidebar">
+    <div class="ui fluid placeholder">
+      <div class="image header">
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="image header">
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="image header">
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="sidebar-container">
+    <h2 class="ui medium top attached header mt-0">Keywords and subjects</h2>
+    <div id="keywords-and-subjects" aria-label="Keywords and subjects"
+            class="ui segment bottom attached rdm-sidebar">
+  
+  
+  <h3 class="hidden">Keywords</h3>
+  <ul class="ui horizontal list no-bullets subjects">
+    <li class="item">
+      <a href="/search?q=metadata.subjects.subject:%22KDD+Cup%22"
+          class="subject"
+          title="Search results for KDD Cup"
+      >
+        KDD Cup
+      </a>
+    </li>
+    <li class="item">
+      <a href="/search?q=metadata.subjects.subject:%22forecasting%22"
+          class="subject"
+          title="Search results for forecasting"
+      >
+        forecasting
+      </a>
+    </li>
+    <li class="item">
+      <a href="/search?q=metadata.subjects.subject:%22hourly+series%22"
+          class="subject"
+          title="Search results for hourly series"
+      >
+        hourly series
+      </a>
+    </li>
+  </ul>
+  
+
+    </div>
+  </div>
+
+
+<div class="sidebar-container">
+  <h2 class="ui medium top attached header mt-0">Details</h2>
+  <div id="record-details" class="ui segment bottom attached rdm-sidebar">
+
+    <dl class="details-list">
+      
+
+ 
+  <dt class="ui tiny header">DOI
+    
+  </dt>
+  <dd>
+    <span class="get-badge details-doi-section" data-toggle="tooltip" data-placement="bottom">
+      <img id='record-doi-badge' data-target="[data-modal='10.5281/zenodo.4656719']" title="Get the DOI badge!"
+        src="/badge/DOI/10.5281/zenodo.4656719.svg" alt="10.5281/zenodo.4656719" />
+      <div id="copy-button-record-doi-badge" class="copy-doi-button" data-value=https://doi.org/10.5281/zenodo.4656719 data-size="mini"></div>
+    </span>
+
+    <div id="doi-modal" class="ui modal fade badge-modal" data-modal="10.5281/zenodo.4656719">
+      <div class="header">DOI Badge</div>
+      <div class="content">
+        <h4>
+          <small>DOI</small>
+        </h4>
+        <h4>
+          <pre>10.5281/zenodo.4656719</pre>
+        </h4>
+        
+        
+
+    <h3 class="ui small header">
+      Markdown
+    </h3>
+    <div class="ui message code">
+      <pre>[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4656719.svg)](https://doi.org/10.5281/zenodo.4656719)</pre>
+    </div>
+
+    <h3 class="ui small header">
+      reStructuredText
+    </h3>
+      <div class="ui message code">
+        <pre>.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4656719.svg
+  :target: https://doi.org/10.5281/zenodo.4656719</pre>
+      </div>
+
+    <h3 class="ui small header">
+      HTML
+    </h3>
+    <div class="ui message code">
+      <pre>&lt;a href="https://doi.org/10.5281/zenodo.4656719"&gt;&lt;img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4656719.svg" alt="DOI"&gt;&lt;/a&gt;</pre>
+    </div>
+
+    <h3 class="ui small header">
+      Image URL
+    </h3>
+    <div class="ui message code">
+      <pre>https://zenodo.org/badge/DOI/10.5281/zenodo.4656719.svg</pre>
+    </div>
+
+    <h3 class="ui small header">
+    Target URL
+    </h3>
+    <div class="ui message code">
+      <pre>https://doi.org/10.5281/zenodo.4656719</pre>
+    </div>
+      </div>
+    </div>
+  </dd>
+
+      
+      
+  <dt class="ui tiny header">Resource type</dt>
+  <dd>Dataset</dd>
+      
+      
+  <dt class="ui tiny header">Publisher</dt>
+  <dd>Zenodo</dd>
+      
+      
+      
+      
+      
+  <dt class="ui tiny header">Languages</dt>
+  <dd>
+  
+    English
+  
+</dd>
+      
+      
+    </dl>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+  <div class="sidebar-container">
+    <h2 class="ui medium top attached header mt-0">Rights</h2>
+    <div id="licenses" class="ui segment bottom attached rdm-sidebar">
+      <dl class="details-list">
+      
+        <dt class="ui tiny header">License</dt><dd id="license-cc-by-4.0-1" class="has-popup">
+              <div id="title-cc-by-4.0-1"
+                   class="license clickable"
+                   tabindex="0"
+                   aria-haspopup="dialog"
+                   aria-expanded="false"
+                   role="button"
+                   aria-label="Creative Commons Attribution 4.0 International"
+              >
+                
+                  
+                  <span class="icon-wrap">
+                  <img class="icon" src="/static/icons/licenses/cc-by-icon.svg"
+                       alt="cc-by-4.0 icon"/>
+                </span>
+                
+                <span class="title-text">
+                Creative Commons Attribution 4.0 International
+              </span>
+              </div>
+              <div id="description-cc-by-4.0-1"
+                   class="licenses-description ui flowing popup transition hidden"
+                   role="dialog"
+                   aria-labelledby="title-cc-by-4.0-1"
+              >
+                <i role="button" tabindex="0" class="close icon text-muted"
+                   aria-label="Close"></i>
+                <div id="license-description-1" class="description">
+                <span class="text-muted">
+                  The Creative Commons Attribution license allows re-distribution and re-use of a licensed work on the condition that the creator is appropriately credited.
+                </span>
+                  
+  
+    <a class="license-link" href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank"
+       title="Opens in new tab">Read more</a>
+  
+
+                </div>
+              </div>
+            </dd>
+          
+      
+      
+      </dl>
+    </div>
+  </div>
+
+<div class="sidebar-container">
+  <h2 class="ui medium top attached header mt-0">Citation</h2>
+  <div id="citation" class="ui segment bottom attached rdm-sidebar">
+
+<div id="recordCitation" data-record-links='{"access": "https://zenodo.org/api/records/4656719/access", "access_grants": "https://zenodo.org/api/records/4656719/access/grants", "access_links": "https://zenodo.org/api/records/4656719/access/links", "access_request": "https://zenodo.org/api/records/4656719/access/request", "access_users": "https://zenodo.org/api/records/4656719/access/users", "communities": "https://zenodo.org/api/records/4656719/communities", "communities-suggestions": "https://zenodo.org/api/records/4656719/communities-suggestions", "doi": "https://doi.org/10.5281/zenodo.4656719", "draft": "https://zenodo.org/api/records/4656719/draft", "file_modification": "https://zenodo.org/api/records/4656719/file-modification", "files": "https://zenodo.org/api/records/4656719/files", "latest": "https://zenodo.org/api/records/4656719/versions/latest", "latest_html": "https://zenodo.org/records/4656719/latest", "media_files": "https://zenodo.org/api/records/4656719/media-files", "parent": "https://zenodo.org/api/records/3893503", "parent_doi": "https://doi.org/10.5281/zenodo.3893503", "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.3893503", "parent_html": "https://zenodo.org/records/3893503", "preview_html": "https://zenodo.org/records/4656719?preview=1", "quota_increase": "https://zenodo.org/api/records/4656719/quota-increase", "request_deletion": "https://zenodo.org/api/records/4656719/request-deletion", "requests": "https://zenodo.org/api/records/4656719/requests", "reserve_doi": "https://zenodo.org/api/records/4656719/draft/pids/doi", "self": "https://zenodo.org/api/records/4656719", "self_doi": "https://doi.org/10.5281/zenodo.4656719", "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.4656719", "self_html": "https://zenodo.org/records/4656719", "self_iiif_manifest": "https://zenodo.org/api/iiif/record:4656719/manifest", "self_iiif_sequence": "https://zenodo.org/api/iiif/record:4656719/sequence/default", "versions": "https://zenodo.org/api/records/4656719/versions"}'
+  data-styles='[["apa", "APA"], ["harvard-cite-them-right", "Harvard"], ["modern-language-association", "MLA"], ["nlm-citation-sequence", "Vancouver"], ["chicago-notes-bibliography", "Chicago"], ["ieee", "IEEE"]]'
+  data-defaultstyle='"apa"'
+  data-include-deleted='false'>
+</div>
+  </div>
+</div>
+  <div class="sidebar-container">
+    <h2 class="ui medium top attached header mt-0">Export</h2>
+    <div id="export-record" class="ui segment bottom attached exports rdm-sidebar">
+
+      
+      
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        <div id="recordExportDownload" data-formats='[{"export_url": "/records/4656719/export/json", "name": "JSON"}, {"export_url": "/records/4656719/export/json-ld", "name": "JSON-LD"}, {"export_url": "/records/4656719/export/csl", "name": "CSL"}, {"export_url": "/records/4656719/export/datacite-json", "name": "DataCite JSON"}, {"export_url": "/records/4656719/export/datacite-xml", "name": "DataCite XML"}, {"export_url": "/records/4656719/export/dublincore", "name": "Dublin Core XML"}, {"export_url": "/records/4656719/export/marcxml", "name": "MARCXML"}, {"export_url": "/records/4656719/export/bibtex", "name": "BibTeX"}, {"export_url": "/records/4656719/export/geojson", "name": "GeoJSON"}, {"export_url": "/records/4656719/export/dcat-ap", "name": "DCAT"}, {"export_url": "/records/4656719/export/codemeta", "name": "Codemeta"}, {"export_url": "/records/4656719/export/cff", "name": "Citation File Format"}, {"export_url": "/records/4656719/export/datapackage", "name": "Data Package JSON"}]'></div>
+    </div>
+  </div>
+
+<section
+  id="upload-info"
+  role="note"
+  aria-label="Upload information"
+  class="sidebar-container ui segment rdm-sidebar text-muted"
+>
+  <h2 class="ui small header text-muted p-0 mb-5"><small>Technical metadata</small></h2>
+  <dl class="m-0">
+    <dt class="inline"><small>Created</small></dt>
+    <dd class="inline">
+      <small>April 1, 2021</small>
+    </dd>
+    <div>
+      <dt class="rel-mt-1 inline"><small>Modified</small></dt>
+      <dd class="inline">
+        <small>April 2, 2021</small>
+      </dd>
+    </div>
+  </dl>
+</section>
+          
+        </aside>
+      </div>
+    </div>
+
+    <div class="ui container">
+      <div class="ui relaxed grid">
+        <div class="two column row">
+          <div class="sixteen wide tablet eleven wide computer column">
+            <div class="ui grid">
+                <div class="centered row rel-mt-1">
+                  <button id="jump-btn" class="jump-to-top ui button labeled icon"
+                          aria-label="Jump to top of page">
+                    <i class="arrow alternate circle up outline icon"></i>
+                    Jump up
+                  </button>
+                </div>
+              </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </main>
+    <footer id="rdm-footer-element">
+        
+
+  <div class="footer-top">
+    <div class="ui container app-rdm-footer">
+<div class="ui equal width stackable grid zenodo-footer">
+  <div class="column">
+    <h2 class="ui inverted tiny header">About</h2>
+    <ul class="ui inverted link list">
+      <li class="item">
+        <a href="https://about.zenodo.org">About</a>
+      </li>
+      <li class="item">
+        <a href="https://about.zenodo.org/policies">Policies</a>
+      </li>
+      <li class="item">
+        <a href="https://about.zenodo.org/infrastructure">Infrastructure</a>
+      </li>
+      <li class="item">
+        <a href="https://about.zenodo.org/principles">Principles</a>
+      </li>
+      <li class="item">
+        <a href="https://about.zenodo.org/projects/">Projects</a>
+      </li>
+      <li class="item">
+        <a href="https://about.zenodo.org/roadmap/">Roadmap</a>
+      </li>
+      <li class="item">
+        <a href="https://about.zenodo.org/contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+  <div class="column">
+    <h2 class="ui inverted tiny header">Blog</h2>
+    <ul class="ui inverted link list">
+      <li class="item">
+        <a href="https://blog.zenodo.org">Blog</a>
+      </li>
+    </ul>
+  </div>
+  <div class="column">
+    <h2 class="ui inverted tiny header">Support</h2>
+    <ul class="ui inverted link list">
+      <li class="item">
+        <a href="https://help.zenodo.org/">Help</a>
+      </li>
+      <li class="item">
+        <a href="https://support.zenodo.org/help/">FAQ</a>
+      </li>
+    </ul>
+  </div>
+  <div class="column">
+    <h2 class="ui inverted tiny header">Developers</h2>
+    <ul class="ui inverted link list">
+      <li class="item">
+        <a href="https://developers.zenodo.org">REST API</a>
+      </li>
+      <li class="item">
+        <a href="https://developers.zenodo.org#oai-pmh">OAI-PMH</a>
+      </li>
+    </ul>
+  </div>
+  <div class="column">
+    <h2 class="ui inverted tiny header">Contribute</h2>
+    <ul class="ui inverted link list">
+      <li class="item">
+        <a href="https://github.com/zenodo/zenodo-rdm">
+          <i class="icon external" aria-hidden="true"></i>
+          GitHub
+        </a>
+      </li>
+      <li class="item">
+        <a href="/donate">
+          <i class="icon external" aria-hidden="true"></i>
+          Donate
+        </a>
+      </li>
+    </ul>
+  </div>
+      <div class="six wide column right aligned">
+  <h2 class="ui inverted tiny header">Funded by</h2>
+  <ul class="ui horizontal link list">
+    <li class="item">
+      <a href="https://home.cern" aria-label="CERN">
+        <img src="/static/images/cern.png" width="60" height="60" alt="" />
+      </a>
+    </li>
+    <li class="item">
+      <a href="https://www.openaire.eu" aria-label="OpenAIRE">
+        <img src="/static/images/openaire.png" width="60" height="60" alt="" />
+      </a>
+    </li>
+    <li class="item">
+      <a href="https://commission.europa.eu/index_en" aria-label="European Commission">
+        <img src="/static/images/eu.png" width="88" height="60" alt="" />
+      </a>
+    </li>
+  </ul>
+      </div>
+      </div>
+    </div>
+
+  </div>
+        
+<div class="footer-bottom">
+  <div class="ui inverted container">
+    <div class="ui grid">
+      <div class="eight wide column left middle aligned">
+        <p class="m-0">
+          Powered by
+          <a href="https://home.cern/science/computing/data-centre">CERN Data Centre</a> & <a href="https://inveniordm.docs.cern.ch/">InvenioRDM</a>
+        </p>
+      </div>
+      <div class="eight wide column right aligned">
+        <ul class="ui inverted horizontal link list">
+          <li class="item">
+            <a href="https://stats.uptimerobot.com/vlYOVuWgM/">Status</a>
+          </li>
+          <li class="item">
+            <a href="https://about.zenodo.org/privacy-policy">Privacy policy</a>
+          </li>
+          <li class="item">
+            <a href="https://about.zenodo.org/cookie-policy">Cookie policy</a>
+          </li>
+          <li class="item">
+            <a href="https://about.zenodo.org/terms">Terms of Use</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    </footer>
+  
+  
+    
+
+        
+          
+          
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      <script type='application/ld+json'>{"@context": "http://schema.org", "@id": "https://doi.org/10.5281/zenodo.4656719", "@type": "https://schema.org/Dataset", "author": [{"@id": "https://orcid.org/0000-0002-1333-7249", "@type": "Person", "affiliation": [{"@type": "Organization", "name": "PhD Student at Monash University"}], "familyName": "Godahewa", "givenName": "Rakshitha", "name": "Godahewa, Rakshitha"}, {"@id": "https://orcid.org/0000-0002-3665-9021", "@type": "Person", "affiliation": [{"@type": "Organization", "name": "Lecturer at Monash University"}], "familyName": "Bergmeir", "givenName": "Christoph", "name": "Bergmeir, Christoph"}, {"@id": "https://orcid.org/0000-0001-9963-5169", "@type": "Person", "affiliation": [{"@type": "Organization", "name": "Professor at Monash University"}], "familyName": "Webb", "givenName": "Geoff", "name": "Webb, Geoff"}, {"@id": "https://orcid.org/0000-0002-2140-5352", "@type": "Person", "affiliation": [{"@type": "Organization", "name": "Professor at Monash University"}], "familyName": "Hyndman", "givenName": "Rob", "name": "Hyndman, Rob"}, {"@id": "https://orcid.org/0000-0003-3816-0985", "@type": "Person", "affiliation": [{"@type": "Organization", "name": "Lecturer at University of Sydney"}], "familyName": "Montero-Manso", "givenName": "Pablo", "name": "Montero-Manso, Pablo"}], "citation": [{"@id": "https://www.kdd.org/kdd2018/kdd-cup", "@type": "Dataset"}], "contentSize": "2.34 MB", "creator": [{"@id": "https://orcid.org/0000-0002-1333-7249", "@type": "Person", "affiliation": [{"@type": "Organization", "name": "PhD Student at Monash University"}], "familyName": "Godahewa", "givenName": "Rakshitha", "name": "Godahewa, Rakshitha"}, {"@id": "https://orcid.org/0000-0002-3665-9021", "@type": "Person", "affiliation": [{"@type": "Organization", "name": "Lecturer at Monash University"}], "familyName": "Bergmeir", "givenName": "Christoph", "name": "Bergmeir, Christoph"}, {"@id": "https://orcid.org/0000-0001-9963-5169", "@type": "Person", "affiliation": [{"@type": "Organization", "name": "Professor at Monash University"}], "familyName": "Webb", "givenName": "Geoff", "name": "Webb, Geoff"}, {"@id": "https://orcid.org/0000-0002-2140-5352", "@type": "Person", "affiliation": [{"@type": "Organization", "name": "Professor at Monash University"}], "familyName": "Hyndman", "givenName": "Rob", "name": "Hyndman, Rob"}, {"@id": "https://orcid.org/0000-0003-3816-0985", "@type": "Person", "affiliation": [{"@type": "Organization", "name": "Lecturer at University of Sydney"}], "familyName": "Montero-Manso", "givenName": "Pablo", "name": "Montero-Manso, Pablo"}], "dateCreated": "2021-04-01T12:37:05.686635+00:00", "dateModified": "2021-04-02T00:27:20.835612+00:00", "datePublished": "2020-06-14", "description": "\u003cp\u003eThis dataset was used in the KDD Cup 2018 forecasting competition.\u0026nbsp;It contains long hourly time series representing the air quality levels in 59 stations in 2 cities: Beijing (35 stations) and London (24 stations) from 01/01/2017 to 31/03/2018.\u0026nbsp;The air quality level is represented in multiple measurements such as PM2.5, PM10, NO2, CO, O3 and SO2.\u003c/p\u003e\n\n\u003cp\u003eThe dataset uploaded here contains 270 hourly time series which have been categorized using city, station name and air quality measurement.\u003c/p\u003e", "distribution": [{"@type": "DataDownload", "contentUrl": "https://zenodo.org/api/records/4656719/files/kdd_cup_2018_dataset_with_missing_values.zip/content", "encodingFormat": "application/zip"}], "identifier": "https://doi.org/10.5281/zenodo.4656719", "inLanguage": {"@type": "Language", "alternateName": "eng", "name": "English"}, "keywords": "KDD Cup, forecasting, hourly series", "license": "https://creativecommons.org/licenses/by/4.0/legalcode", "name": "KDD Cup Dataset (with Missing Values)", "publisher": {"@type": "Organization", "name": "Zenodo"}, "size": "2.34 MB", "url": "https://zenodo.org/records/4656719", "version": "4"}</script>
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+        <div class="ui container info message cookie-banner hidden">
+  <i class="close icon"></i>
+  <div>
+    <i aria-hidden="true" class="info icon"></i>
+    <p class="inline">This site uses cookies. Find out more on <a href="https://about.zenodo.org/cookie-policy">how we use cookies</a></p>
+  </div>
+  <div class="buttons">
+    <button class="ui button small primary" id="cookies-all">Accept all cookies</button>
+    <button class="ui button small" id="cookies-essential">Accept only essential cookies</button>
+  </div>
+</div>
+
+
+  </body>
+</html>

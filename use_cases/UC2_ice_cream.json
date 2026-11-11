@@ -1,0 +1,81 @@
+{
+  "id": "UC2",
+  "title": "Ice-cream sales: do hot days and public holidays raise our sales?",
+  "client": "Valdena Gelato Shop (fictional, northern Italy)",
+  "brief_file": "use_cases/UC2_ice_cream.md",
+  "internal_dir": "internal/UC2_valdena_gelato",
+  "as_of": "2026-10-15",
+  "geography": {
+    "primary": [
+      "IT"
+    ],
+    "secondary": []
+  },
+  "windows": [
+    {
+      "id": "history",
+      "start": "2023-06-01",
+      "end": "2025-05-31",
+      "purpose": "Two summers of daily sales, to see how weather and holidays affect them."
+    },
+    {
+      "id": "recent",
+      "start": "2025-06-01",
+      "end": "2026-03-31",
+      "purpose": "The most recent months, to check that the pattern still holds."
+    }
+  ],
+  "needs": [
+    {
+      "id": "N1",
+      "name": "Daily ice-cream sales by product",
+      "priority": "must",
+      "min_grain": "daily",
+      "windows": [
+        "history",
+        "recent"
+      ]
+    },
+    {
+      "id": "N2",
+      "name": "Mapping of product codes before and after the 2024 code change",
+      "priority": "must",
+      "min_grain": "static",
+      "windows": [
+        "history"
+      ]
+    },
+    {
+      "id": "N3",
+      "name": "Daily maximum temperature",
+      "priority": "must",
+      "min_grain": "daily",
+      "windows": [
+        "history",
+        "recent"
+      ]
+    },
+    {
+      "id": "N4",
+      "name": "Public holidays in Italy",
+      "priority": "should",
+      "min_grain": "daily",
+      "windows": [
+        "history",
+        "recent"
+      ]
+    },
+    {
+      "id": "N5",
+      "name": "Shop opening days and local events",
+      "priority": "should",
+      "min_grain": "daily",
+      "windows": [
+        "history",
+        "recent"
+      ]
+    }
+  ],
+  "links_hint": "No dataset links are needed. Weather and holiday data come from the APIs in the register. Sales data is internal.",
+  "links_expected": false
+}

@@ -1,0 +1,559 @@
+{
+ "profile": "tabular-data-package",
+ "name": "opsd_time_series",
+ "id": "https://doi.org/10.25832/time_series/2019-06-05",
+ "title": "Time series",
+ "description": "Load, wind and solar, prices in hourly resolution",
+ "longDescription": "This data package contains different kinds of timeseries data relevant for power system modelling, namely electricity consumption (load) for 37 European countries as well as wind and solar power generation and capacities and prices for a growing subset of countries. The timeseries become available at different points in time depending on the sources. The data has been downloaded from the sources, resampled and merged in a large CSV file with hourly resolution. Additionally, the data available at a higher resolution (Some renewables in-feed, 15 minutes) is provided in a separate file. All data processing is conducted in python and pandas and has been documented in the Jupyter notebooks linked below.",
+ "homepage": "https://data.open-power-system-data.org/time_series/2019-05-15",
+ "documentation": "https://github.com/Open-Power-System-Data/datapackage_timeseries/blob/2019-05-15/main.ipynb",
+ "version": "2019-06-05",
+ "created": "2019-06-05",
+ "lastChanges": "Corrected error in German wind generation data",
+ "keywords": [
+  "Open Power System Data",
+  "time series",
+  "power systems",
+  "in-feed",
+  "renewables",
+  "wind",
+  "solar",
+  "power consumption",
+  "power market"
+ ],
+ "geographicalScope": "37 European countries",
+ "temporal": {
+  "start": "2004-12-29 23:00:00+00:00",
+  "end": "2019-04-30 23:00:00+00:00"
+ },
+ "contributors": [
+  {
+   "web": "http://neon-energie.de/en/team/",
+   "name": "Jonathan Muehlenpfordt",
+   "email": "muehlenpfordt@neon-energie.de",
+   "role": "author",
+   "organization": "Neon Neue Energieoekonomik"
+  }
+ ],
+ "sources": [
+  {
+   "name": "Svenska Kraftnaet"
+  },
+  {
+   "name": "PSE"
+  },
+  {
+   "name": "APG"
+  },
+  {
+   "name": "National Grid"
+  },
+  {
+   "name": "Amprion"
+  },
+  {
+   "name": "CEPS"
+  },
+  {
+   "name": "Elexon"
+  },
+  {
+   "name": "Terna"
+  },
+  {
+   "name": "RTE"
+  },
+  {
+   "name": "Energinet.dk"
+  },
+  {
+   "name": "TransnetBW"
+  },
+  {
+   "name": "50Hertz"
+  }
+ ],
+ "resources": [
+  {
+   "name": "time_series",
+   "title": "Time series Excel file",
+   "description": "All data in one file",
+   "path": "time_series.xlsx",
+   "format": "xlsx",
+   "mediatype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+   "bytes": 16242945,
+   "hash": "f4fed5ba62884f3013fc81ddf28cea942bbf5227ec9f04fd8b6068e99cb5a4fa"
+  },
+  {
+   "profile": "tabular-data-resource",
+   "name": "opsd_time_series_15min",
+   "title": "Time series 15minutes singleindex",
+   "description": "All data that is avaialable in 15minutes-resolution in singleindex format",
+   "path": "time_series_15min_singleindex.csv",
+   "format": "csv",
+   "mediatype": "text/csv",
+   "encoding": "UTF8",
+   "bytes": 204999143,
+   "hash": "9a0d54da4b2898690f6b2917f6feb1b9ba630d9d4e53fd514e29344f8235c107",
+   "dialect": {
+    "csvddfVersion": 1.0,
+    "delimiter": ",",
+    "lineTerminator": "\n",
+    "header": true
+   },
+   "_alternativeFormats": [
+    {
+     "path": "time_series_15min_singleindex.csv",
+     "stacking": "Singleindex",
+     "format": "csv"
+    },
+    {
+     "path": "time_series.xlsx",
+     "stacking": "Multiindex",
+     "format": "xlsx"
+    },
+    {
+     "path": "time_series_15min_multiindex.csv",
+     "stacking": "Multiindex",
+     "format": "csv"
+    },
+    {
+     "path": "time_series_15min_stacked.csv",
+     "stacking": "Stacked",
+     "format": "csv"
+    }
+   ],
+   "schema": {
+    "primaryKey": "utc_timestamp",
+    "missingValues": "",
+    "fields": [
+     {
+      "name": "utc_timestamp",
+      "description": "Start of timeperiod in Coordinated Universal Time",
+      "type": "datetime",
+      "format": "fmt:%Y-%m-%dT%H%M%SZ"
+     },
+     {
+      "name": "cet_cest_timestamp",
+      "description": "Start of timeperiod in Central European (Summer-) Time",
+      "type": "datetime",
+      "format": "fmt:%Y-%m-%dT%H%M%S%z",
+      "opsdContentfilter": true
+     }
+    ]
+   }
+  },
+  {
+   "profile": "tabular-data-resource",
+   "name": "opsd_time_series_30min",
+   "title": "Time series 30minutes singleindex",
+   "description": "All data that is avaialable in 30minutes-resolution in singleindex format",
+   "path": "time_series_30min_singleindex.csv",
+   "format": "csv",
+   "mediatype": "text/csv",
+   "encoding": "UTF8",
+   "bytes": 83087414,
+   "hash": "a9395820af21c9f50582ff031aaf2eadd317749afdd86439d0c627cf982f57f3",
+   "dialect": {
+    "csvddfVersion": 1.0,
+    "delimiter": ",",
+    "lineTerminator": "\n",
+    "header": true
+   },
+   "_alternativeFormats": [
+    {
+     "path": "time_series_30min_singleindex.csv",
+     "stacking": "Singleindex",
+     "format": "csv"
+    },
+    {
+     "path": "time_series.xlsx",
+     "stacking": "Multiindex",
+     "format": "xlsx"
+    },
+    {
+     "path": "time_series_30min_multiindex.csv",
+     "stacking": "Multiindex",
+     "format": "csv"
+    },
+    {
+     "path": "time_series_30min_stacked.csv",
+     "stacking": "Stacked",
+     "format": "csv"
+    }
+   ],
+   "schema": {
+    "primaryKey": "utc_timestamp",
+    "missingValues": "",
+    "fields": [
+     {
+      "name": "utc_timestamp",
+      "description": "Start of timeperiod in Coordinated Universal Time",
+      "type": "datetime",
+      "format": "fmt:%Y-%m-%dT%H%M%SZ"
+     },
+     {
+      "name": "cet_cest_timestamp",
+      "description": "Start of timeperiod in Central European (Summer-) Time",
+      "type": "datetime",
+      "format": "fmt:%Y-%m-%dT%H%M%S%z",
+      "opsdContentfilter": true
+     },
+     {
+      "name": "FR_load_actual_tso",
+      "description": "Total load in France in MW as published by RTE",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "RTE",
+       "web": "https://opendata.reseaux-energies.fr/explore/dataset/eco2mix-national-cons-def"
+      },
+      "opsdProperties": {
+       "Region": "FR",
+       "Variable": "load_actual_tso"
+      }
+     },
+     {
+      "name": "FR_load_forecast_tso",
+      "description": "Day-ahead load forecast in France in MW as published by RTE",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "RTE",
+       "web": "https://opendata.reseaux-energies.fr/explore/dataset/eco2mix-national-cons-def"
+      },
+      "opsdProperties": {
+       "Region": "FR",
+       "Variable": "load_forecast_tso"
+      }
+     },
+     {
+      "name": "FR_solar_generation_actual",
+      "description": "Actual solar generation in France in MW",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "RTE",
+       "web": "https://opendata.reseaux-energies.fr/explore/dataset/eco2mix-national-cons-def"
+      },
+      "opsdProperties": {
+       "Region": "FR",
+       "Variable": "solar_generation_actual"
+      }
+     },
+     {
+      "name": "FR_wind_onshore_generation_actual",
+      "description": "Actual wind_onshore generation in France in MW",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "RTE",
+       "web": "https://opendata.reseaux-energies.fr/explore/dataset/eco2mix-national-cons-def"
+      },
+      "opsdProperties": {
+       "Region": "FR",
+       "Variable": "wind_onshore_generation_actual"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "profile": "tabular-data-resource",
+   "name": "opsd_time_series_60min",
+   "title": "Time series 60minutes singleindex",
+   "description": "All data that is avaialable in 60minutes-resolution in singleindex format",
+   "path": "time_series_60min_singleindex.csv",
+   "format": "csv",
+   "mediatype": "text/csv",
+   "encoding": "UTF8",
+   "bytes": 229868536,
+   "hash": "659fe789af2672aabe989aebc8c5c21052a1a96e4da70b0fc941910a1cd4de9d",
+   "dialect": {
+    "csvddfVersion": 1.0,
+    "delimiter": ",",
+    "lineTerminator": "\n",
+    "header": true
+   },
+   "_alternativeFormats": [
+    {
+     "path": "time_series_60min_singleindex.csv",
+     "stacking": "Singleindex",
+     "format": "csv"
+    },
+    {
+     "path": "time_series.xlsx",
+     "stacking": "Multiindex",
+     "format": "xlsx"
+    },
+    {
+     "path": "time_series_60min_multiindex.csv",
+     "stacking": "Multiindex",
+     "format": "csv"
+    },
+    {
+     "path": "time_series_60min_stacked.csv",
+     "stacking": "Stacked",
+     "format": "csv"
+    }
+   ],
+   "schema": {
+    "primaryKey": "utc_timestamp",
+    "missingValues": "",
+    "fields": [
+     {
+      "name": "utc_timestamp",
+      "description": "Start of timeperiod in Coordinated Universal Time",
+      "type": "datetime",
+      "format": "fmt:%Y-%m-%dT%H%M%SZ"
+     },
+     {
+      "name": "cet_cest_timestamp",
+      "description": "Start of timeperiod in Central European (Summer-) Time",
+      "type": "datetime",
+      "format": "fmt:%Y-%m-%dT%H%M%S%z",
+      "opsdContentfilter": true
+     },
+     {
+      "name": "ES_load_actual_entsoe_power_statistics",
+      "description": "Total load in Spain in MW as published on ENTSO-E Data Portal/Power Statistics",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "ENTSO-E Data Portal and Power Statistics",
+       "web": "https://www.entsoe.eu/data/power-stats"
+      },
+      "opsdProperties": {
+       "Region": "ES",
+       "Variable": "load_actual_entsoe_power_statistics"
+      }
+     },
+     {
+      "name": "ES_load_actual_entsoe_transparency",
+      "description": "Total load in Spain in MW as published on ENTSO-E Transparency Platform",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "ENTSO-E Transparency",
+       "web": "https://transparency.entsoe.eu/load-domain/r2/totalLoadR2/show"
+      },
+      "opsdProperties": {
+       "Region": "ES",
+       "Variable": "load_actual_entsoe_transparency"
+      }
+     },
+     {
+      "name": "ES_load_forecast_entsoe_transparency",
+      "description": "Day-ahead load forecast in Spain in MW as published on ENTSO-E Transparency Platform",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "ENTSO-E Transparency",
+       "web": "https://transparency.entsoe.eu/load-domain/r2/totalLoadR2/show"
+      },
+      "opsdProperties": {
+       "Region": "ES",
+       "Variable": "load_forecast_entsoe_transparency"
+      }
+     },
+     {
+      "name": "ES_solar_generation_actual",
+      "description": "Actual solar generation in Spain in MW",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "ENTSO-E Transparency",
+       "web": "https://transparency.entsoe.eu/generation/r2/actualGenerationPerProductionType/show"
+      },
+      "opsdProperties": {
+       "Region": "ES",
+       "Variable": "solar_generation_actual"
+      }
+     },
+     {
+      "name": "ES_wind_onshore_generation_actual",
+      "description": "Actual wind_onshore generation in Spain in MW",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "ENTSO-E Transparency",
+       "web": "https://transparency.entsoe.eu/generation/r2/actualGenerationPerProductionType/show"
+      },
+      "opsdProperties": {
+       "Region": "ES",
+       "Variable": "wind_onshore_generation_actual"
+      }
+     },
+     {
+      "name": "FR_load_actual_entsoe_power_statistics",
+      "description": "Total load in France in MW as published on ENTSO-E Data Portal/Power Statistics",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "ENTSO-E Data Portal and Power Statistics",
+       "web": "https://www.entsoe.eu/data/power-stats"
+      },
+      "opsdProperties": {
+       "Region": "FR",
+       "Variable": "load_actual_entsoe_power_statistics"
+      }
+     },
+     {
+      "name": "FR_load_actual_entsoe_transparency",
+      "description": "Total load in France in MW as published on ENTSO-E Transparency Platform",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "ENTSO-E Transparency",
+       "web": "https://transparency.entsoe.eu/load-domain/r2/totalLoadR2/show"
+      },
+      "opsdProperties": {
+       "Region": "FR",
+       "Variable": "load_actual_entsoe_transparency"
+      }
+     },
+     {
+      "name": "FR_load_actual_tso",
+      "description": "Total load in France in MW as published by own calculation based on RTE",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "own calculation based on RTE",
+       "web": "https://opendata.reseaux-energies.fr/explore/dataset/eco2mix-national-cons-def"
+      },
+      "opsdProperties": {
+       "Region": "FR",
+       "Variable": "load_actual_tso"
+      }
+     },
+     {
+      "name": "FR_load_forecast_entsoe_transparency",
+      "description": "Day-ahead load forecast in France in MW as published on ENTSO-E Transparency Platform",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "ENTSO-E Transparency",
+       "web": "https://transparency.entsoe.eu/load-domain/r2/totalLoadR2/show"
+      },
+      "opsdProperties": {
+       "Region": "FR",
+       "Variable": "load_forecast_entsoe_transparency"
+      }
+     },
+     {
+      "name": "FR_load_forecast_tso",
+      "description": "Day-ahead load forecast in France in MW as published by own calculation based on RTE",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "own calculation based on RTE",
+       "web": "https://opendata.reseaux-energies.fr/explore/dataset/eco2mix-national-cons-def"
+      },
+      "opsdProperties": {
+       "Region": "FR",
+       "Variable": "load_forecast_tso"
+      }
+     },
+     {
+      "name": "FR_solar_generation_actual",
+      "description": "Actual solar generation in France in MW",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "own calculation based on RTE",
+       "web": "https://opendata.reseaux-energies.fr/explore/dataset/eco2mix-national-cons-def"
+      },
+      "opsdProperties": {
+       "Region": "FR",
+       "Variable": "solar_generation_actual"
+      }
+     },
+     {
+      "name": "FR_wind_onshore_generation_actual",
+      "description": "Actual wind_onshore generation in France in MW",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "own calculation based on RTE",
+       "web": "https://opendata.reseaux-energies.fr/explore/dataset/eco2mix-national-cons-def"
+      },
+      "opsdProperties": {
+       "Region": "FR",
+       "Variable": "wind_onshore_generation_actual"
+      }
+     },
+     {
+      "name": "PT_load_actual_entsoe_power_statistics",
+      "description": "Total load in Portugal in MW as published on ENTSO-E Data Portal/Power Statistics",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "ENTSO-E Data Portal and Power Statistics",
+       "web": "https://www.entsoe.eu/data/power-stats"
+      },
+      "opsdProperties": {
+       "Region": "PT",
+       "Variable": "load_actual_entsoe_power_statistics"
+      }
+     },
+     {
+      "name": "PT_load_actual_entsoe_transparency",
+      "description": "Total load in Portugal in MW as published on ENTSO-E Transparency Platform",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "ENTSO-E Transparency",
+       "web": "https://transparency.entsoe.eu/load-domain/r2/totalLoadR2/show"
+      },
+      "opsdProperties": {
+       "Region": "PT",
+       "Variable": "load_actual_entsoe_transparency"
+      }
+     },
+     {
+      "name": "PT_load_forecast_entsoe_transparency",
+      "description": "Day-ahead load forecast in Portugal in MW as published on ENTSO-E Transparency Platform",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "ENTSO-E Transparency",
+       "web": "https://transparency.entsoe.eu/load-domain/r2/totalLoadR2/show"
+      },
+      "opsdProperties": {
+       "Region": "PT",
+       "Variable": "load_forecast_entsoe_transparency"
+      }
+     },
+     {
+      "name": "PT_solar_generation_actual",
+      "description": "Actual solar generation in Portugal in MW",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "ENTSO-E Transparency",
+       "web": "https://transparency.entsoe.eu/generation/r2/actualGenerationPerProductionType/show"
+      },
+      "opsdProperties": {
+       "Region": "PT",
+       "Variable": "solar_generation_actual"
+      }
+     },
+     {
+      "name": "PT_wind_onshore_generation_actual",
+      "description": "Actual wind_onshore generation in Portugal in MW",
+      "type": "number",
+      "unit": "MW",
+      "source": {
+       "name": "ENTSO-E Transparency",
+       "web": "https://transparency.entsoe.eu/generation/r2/actualGenerationPerProductionType/show"
+      },
+      "opsdProperties": {
+       "Region": "PT",
+       "Variable": "wind_onshore_generation_actual"
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

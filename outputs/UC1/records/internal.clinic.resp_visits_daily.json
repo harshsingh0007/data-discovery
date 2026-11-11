@@ -1,0 +1,125 @@
+{
+  "source_id": "internal.clinic.resp_visits_daily",
+  "kind": "internal",
+  "title": "Respiratory visits (daily, by district), Clinical Analytics",
+  "summary": "Daily counts of respiratory clinic visits per district of residence, owned by Clinical Analytics for the Valdena clinic system. The catalog states no patient identifiers are included, and the entry is active with daily refresh. Coverage is stated as starting 2022-01-01 and open-ended, so it spans the production window 2024-01-01 to 2025-12-31. Approximate row count is 40,000.",
+  "schema": {
+    "documented": "structured",
+    "field_count": 3,
+    "fields": [
+      {
+        "name": "visit_date",
+        "type": "date",
+        "description": "Day of the visits",
+        "unit": "day",
+        "pii": false
+      },
+      {
+        "name": "district",
+        "type": "string",
+        "description": "District of residence",
+        "unit": null,
+        "pii": false
+      },
+      {
+        "name": "visit_count",
+        "type": "integer",
+        "description": "Respiratory visits that day",
+        "unit": "count",
+        "pii": false
+      }
+    ],
+    "notes": "Catalog lists three columns only. Diagnosis code set, district code list and suppression rule are not documented."
+  },
+  "temporal": {
+    "start": "2022-01-01",
+    "end": null,
+    "grain": "daily",
+    "metadata_last_updated": "2026-10-14",
+    "open_ended": true,
+    "refresh_cadence": "daily"
+  },
+  "spatial": {
+    "coverage": [
+      "IT"
+    ],
+    "code_system": "free-text/local district identifier (code list not documented)",
+    "notes": "Districts are of residence within the Valdena clinic catchment. Join to the N1 station geography is not documented."
+  },
+  "ownership": {
+    "owner": "Clinical Analytics",
+    "publisher": null,
+    "steward": "Chiara Conti"
+  },
+  "licence": {
+    "name": "internal",
+    "evidence": "catalog entry internal.clinic.resp_visits_daily: classification 'internal'; wiki clinic_data_policy (owner Data Protection Office, last edited 2025-02-01) permits only daily counts by district for this purpose",
+    "url": null,
+    "commercial_use": "not_applicable",
+    "agreement_status": null,
+    "attribution_text": null,
+    "mixed_sources": false
+  },
+  "access": {
+    "method": "warehouse_sql",
+    "auth_required": true,
+    "reachable": null,
+    "classification": "internal",
+    "request_process": "Request to Clinical Analytics",
+    "approx_size_bytes": null
+  },
+  "declared_metadata": {
+    "contains_pii": false,
+    "classification": "internal",
+    "status": "active",
+    "grain": "daily",
+    "row_count_approx": 40000,
+    "refresh_cadence": "daily",
+    "last_refreshed": "2026-10-14",
+    "location": "azure://valdena-health/clinic/resp_visits_daily"
+  },
+  "documentation_excerpts": [
+    "Catalog description: 'Respiratory clinic visits counted per day and per district. Contains no patient identifiers.'",
+    "clinic_data_policy: 'Only daily counts by district (`clinic.resp_visits_daily`) may be used for this purpose.'",
+    "clinic_data_policy: 'Patient postcode and age band are personal data. They must not leave the clinic systems for analysis.'"
+  ],
+  "quality_notes": [
+    "No sample could be read: the source is a warehouse_sql table at an Azure location, not a file, so sample_data_file was not applicable and no data was pulled.",
+    "Coverage vs candidate: the candidate says 'Catalog coverage starts 2022-01-01' which matches the catalog temporal_coverage. The catalog does not document zero-day handling, so it is unknown whether days with no visits appear as zero rows or are absent.",
+    "Row count arithmetic: about 40,000 rows over 2022-01-01 to 2026-10-14 (~1,750 days) implies roughly 23 rows per day if every day were present, but the number of districts is not documented, so zero-day representation cannot be checked from the catalog.",
+    "The candidate states 730 days by district; this is the length of the production window only (2024-01-01 to 2025-12-31). The catalog covers a longer period from 2022.",
+    "Diagnosis code set and version for 'respiratory' are not documented anywhere in the catalog or wiki.",
+    "Small-cell suppression rule is not documented.",
+    "District code list, district boundary changes and any mapping to N1 monitoring-station geography are not documented.",
+    "Only one wiki backlink (clinic_data_policy); no other documentation of this table was found."
+  ],
+  "provenance": [
+    {
+      "claim": "Catalog entry: owner Clinical Analytics, steward Chiara Conti, status active, classification internal, contains_pii false, grain daily, temporal_coverage 2022-01-01 to open-ended, refresh daily, last_refreshed 2026-10-14, row_count_approx 40000, access warehouse_sql via request to Clinical Analytics",
+      "evidence": "get_catalog_entry internal.clinic.resp_visits_daily"
+    },
+    {
+      "claim": "Columns are visit_date (date), district (string, district of residence), visit_count (integer, respiratory visits that day); no patient identifiers",
+      "evidence": "get_catalog_entry internal.clinic.resp_visits_daily (columns)"
+    },
+    {
+      "claim": "Only daily counts by district may be used for this analysis; patient-level records may not be used; postcode and age band are personal data that must not leave clinic systems",
+      "evidence": "read_wiki_page clinic_data_policy (owner Data Protection Office, last edited 2025-02-01)"
+    },
+    {
+      "claim": "Only one wiki page references the table and no other documentation was found",
+      "evidence": "get_catalog_entry wiki_backlinks; search_internal_catalog 'respiratory visits daily by district clinic policy'"
+    }
+  ],
+  "unknowns": [
+    "Respiratory diagnosis code set and version",
+    "District code list and whether it maps to the air-quality station geography (N1)",
+    "District boundary changes over 2022-2026",
+    "Whether zero-visit days are present as zero rows",
+    "Small-cell suppression rule",
+    "Whether the table has been reached or the access request to Clinical Analytics has been approved (reachable not tested)",
+    "Whether the 40,000 row count is current; the catalog gives it as approximate",
+    "Data quality checks, late-arriving visits or revisions after the daily refresh",
+    "Whether the 2022-2023 history is complete and comparable to 2024-2025"
+  ]
+}

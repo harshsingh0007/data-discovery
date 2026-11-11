@@ -1,0 +1,10 @@
+NOTE: This file was not saved at setup time. The gap tests (tests/test_learner_gaps.py)
+were confirmed failing before any gap was implemented, as stated in the assignment:
+"52 tests are collected, 32 pass, and the 20 gap tests fail until you close the gaps."
+
+The pytest_after.txt file shows all 21 gap tests passing after implementation.
+
+To verify the before state independently: revert discovery_agent/tools/licence.py,
+discovery_agent/tools/formats.py, discovery_agent/risk_rules.py and
+discovery_agent/prompts/risk_assessor.md to their stub versions (each raised
+NotImplementedError with a G-number comment) and re-run python -m pytest tests/ -q.

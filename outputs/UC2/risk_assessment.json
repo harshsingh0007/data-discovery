@@ -1,0 +1,177 @@
+{
+  "assessments": [
+    {
+      "source_id": "api.nager_public_holidays",
+      "verdict": "feasible_with_conditions",
+      "red_flags": [
+        {
+          "code": "DQ-METADATA-CONTRADICTION",
+          "evidence": "Not raised. Noted only: has_missing_values is null and the full IT list was truncated in probes ('... 10 more items' in 2025, '... 11 more' in 2026), so completeness is unverified.",
+          "severity": "minor"
+        },
+        {
+          "code": "GOV-CATALOG-WIKI-CONFLICT",
+          "evidence": "Not raised. Noted only: holiday data source is not confirmed as an official Italian calendar; register and repository do not state it (quality_notes).",
+          "severity": "minor"
+        }
+      ],
+      "conditions": [
+        "Re-probe the full IT list for 2023, 2025 and 2026 (not truncated) and confirm whether Pasquetta (Easter Monday) and any global=false or regional entries appear; record the result in decisions.md.",
+        "Confirm the data-level licence and commercial-use status for the holiday data (only the code repository MIT licence was found; LICENSE text did not render). Record in decisions.md.",
+        "Verify holiday dates against an official Italian source before production use (candidate issue, unresolved).",
+        "Documentation host nagerholidays.com is not allowlisted; request approval if the API reference is needed, do not work around it."
+      ],
+      "rationale": "Reachable open API with approved purposes prototyping and production. No rule flags were raised. The weaknesses are unverified completeness of the truncated list, unconfirmed data-level licence, and no official-source verification. These are conditions, not blockers. Serves the should need N4."
+    },
+    {
+      "source_id": "api.open_meteo_archive",
+      "verdict": "feasible_with_conditions",
+      "red_flags": [
+        {
+          "code": "LIC-ATTRIBUTION",
+          "evidence": "Licence 'CC BY 4.0' (open-meteo.com/en/licence): 'API data are offered under Attribution 4.0 International (CC BY 4.0)'. Attribution text: 'Weather data by Open-Meteo.com'. Kept from rule flag.",
+          "severity": "minor"
+        },
+        {
+          "code": "LIC-MIXED",
+          "evidence": "Licence page lists upstream 'Weather reanalysis ... from Copernicus Climate Change Service C3S (Licence)' with its specific licence not named in the fetched text; catalog mixed_sources true. Kept from rule flag.",
+          "severity": "major"
+        }
+      ],
+      "conditions": [
+        "Cite Open-Meteo.com (and Copernicus C3S as upstream) in all outputs per the licence terms.",
+        "Read the upstream C3S licence at source and confirm it allows the approved purpose; record in decisions.md.",
+        "Legal sign-off required for production use per policy.open_data_links; prototyping is permitted now. Commercial-use permission under CC BY 4.0 is not stated explicitly and must be confirmed by Legal.",
+        "Choose and justify the shop's coordinates in decisions.md (spec gives no location; Milan 45.46, 9.19 was only a probe point). Use timezone Europe/Rome and override the Lisbon default and hourly arrays.",
+        "Probe the full history window 2023-06-01 to 2025-05-31 and check for nulls or gaps; only the recent-window ends were tested. Record archive start date (not stated in any source read).",
+        "Treat as modelled reanalysis, not station observations; peaks may be smoothed. Document this as a limitation in the analysis."
+      ],
+      "rationale": "Only source for N3 (must). Reachable, with CC BY 4.0 data licence and approved purposes. Rule flags are attribution (minor) and mixed upstream licensing (major, not blocker), so the verdict is feasible_with_conditions under the attribution and mixed-source rules. Main open items are the unchosen shop location and the unprobed history window."
+    },
+    {
+      "source_id": "internal.sales.daily_by_product",
+      "verdict": "feasible_with_conditions",
+      "red_flags": [
+        {
+          "code": "ACC-RESTRICTED",
+          "evidence": "auth_required=true, classification 'confidential', access 'Request to Retail Operations'; reachable not tested. Kept from rule flag.",
+          "severity": "major"
+        },
+        {
+          "code": "INT-JOIN-KEY-MISMATCH",
+          "evidence": "Wiki product_codes_2024 (2024-04-02): from 2024-04-01 codes ending in 'L' were replaced by new codes; 'No mapping table exists'; old and new codes 'can only be matched by product name, and some names are not unique'. Product codes were re-keyed.",
+          "severity": "major"
+        },
+        {
+          "code": "DQ-SEMANTIC-ENCODING",
+          "evidence": "Code suffix 'L' marks retired codes (wiki product_codes_2024); meaning of codes is only in the wiki, not the schema. Timezone of sale_date is undocumented (catalog and wiki).",
+          "severity": "minor"
+        }
+      ],
+      "conditions": [
+        "Submit access request to Retail Operations and obtain approval before profiling data values (ACC-RESTRICTED).",
+        "Build a documented old-to-new product code mapping (by name, with manual resolution of non-unique names) with Retail Operations and the steward; record in decisions.md. Needed for N2.",
+        "Treat 2024-02-05 to 2024-03-10 as missing, not zero (wiki till_migration_2024), and exclude or flag those days in the model.",
+        "Confirm whether closed days have no rows; a shop calendar (N5) is needed to separate closed days from missing data.",
+        "Confirm the 2022-01-01 start date and the timezone of sale_date by a bounded sample after access is granted.",
+        "Licence: internal only; no separate data-sharing terms needed beyond access approval."
+      ],
+      "rationale": "Only daily product-level sales source for N1 (must) and the only candidate for the history window of N2. Access is restricted but achievable. Re-keying of product codes on 2024-04-01 with no mapping table is a major join-key issue that needs a conditioned mapping. The till gap is a known missing-data window. Under the rules the only flag above minor is ACC-RESTRICTED, so the verdict is feasible_with_conditions."
+    },
+    {
+      "source_id": "internal.sales.products",
+      "verdict": "feasible_with_conditions",
+      "red_flags": [
+        {
+          "code": "ACC-RESTRICTED",
+          "evidence": "auth_required=true, classification 'internal', request_process 'Open to analytics roles... Not probed; access not tested.' Kept from rule flag.",
+          "severity": "major"
+        },
+        {
+          "code": "INT-NO-JOIN-KEY",
+          "evidence": "Catalog: 'lists only the current codes'; no old-code or mapping column; wiki product_codes_2024: codes ending in 'L' replaced from 2024-04-01, no mapping table. No key links retired codes to this list.",
+          "severity": "major"
+        }
+      ],
+      "conditions": [
+        "Submit access request and obtain approval before profiling (ACC-RESTRICTED).",
+        "Use only as a name-based reference for building the N2 mapping; do not use it alone to satisfy N2.",
+        "Obtain or search for any pre-2024 product list or code history table (not searched in this profile)."
+      ],
+      "rationale": "Current-code master list with no old codes and no effective dates. It cannot satisfy N2 on its own, but it is a useful name reference for the mapping work. Its only rule flag is access restriction, so feasible_with_conditions applies, with the explicit limitation that it is supporting, not sufficient."
+    },
+    {
+      "source_id": "internal.store.calendar",
+      "verdict": "feasible_with_conditions",
+      "red_flags": [
+        {
+          "code": "ACC-RESTRICTED",
+          "evidence": "auth_required=true, classification 'internal', role membership not verified. Kept from rule flag.",
+          "severity": "major"
+        },
+        {
+          "code": "DQ-METADATA-CONTRADICTION",
+          "evidence": "Catalog row_count_approx 1500 vs coverage 2022-01-01 to open-ended; about 1744 days to 2026-10-10 (about 1749 to as_of 2026-10-15). Roughly 244 days missing or the count is stale. Not verified; no sample read.",
+          "severity": "major"
+        },
+        {
+          "code": "DQ-SENTINEL-VALUES",
+          "evidence": "Wiki till_migration_2024: no sales from 2024-02-05 to 2024-03-10 due to till replacement; the calendar's is_open for those days is unknown and could be read as closed. Schema semantics for is_open on holidays or partial days are undocumented (no wiki page).",
+          "severity": "minor"
+        }
+      ],
+      "conditions": [
+        "Submit access request and obtain approval before profiling values (ACC-RESTRICTED).",
+        "Verify row completeness from 2022-01-01 to 2026-10-15 and reconcile the 1500 vs about 1744 count before using it for closed-day logic.",
+        "Confirm how is_open is set for 2024-02-05 to 2024-03-10 and for public holidays; document in decisions.md.",
+        "Ask Store Operations (steward) to document is_open and event_name semantics."
+      ],
+      "rationale": "Only internal source for shop opening days and local events (N5, should). Coverage spans both windows on paper, but row count contradicts the declared coverage and is_open semantics around the till gap are unknown. Restricted access is achievable. Verdict feasible_with_conditions."
+    }
+  ],
+  "need_coverage": [
+    {
+      "need_id": "N1",
+      "status": "met_with_conditions",
+      "best_sources": [
+        "internal.sales.daily_by_product"
+      ],
+      "gap": "Access not yet approved and reachability untested; history start 2022-01-01 unverified; 2024-02-05 to 2024-03-10 has no rows."
+    },
+    {
+      "need_id": "N2",
+      "status": "partially_met",
+      "best_sources": [
+        "internal.sales.daily_by_product",
+        "internal.sales.products"
+      ],
+      "gap": "No mapping table exists between codes ending in 'L' (retired 2024-04-01) and current codes; name matching is ambiguous because some names are not unique."
+    },
+    {
+      "need_id": "N3",
+      "status": "met_with_conditions",
+      "best_sources": [
+        "api.open_meteo_archive"
+      ],
+      "gap": "Shop coordinates not chosen; full history window not probed; reanalysis rather than station data; Legal sign-off needed for production."
+    },
+    {
+      "need_id": "N4",
+      "status": "met_with_conditions",
+      "best_sources": [
+        "api.nager_public_holidays"
+      ],
+      "gap": "Full IT list not confirmed (truncated); regional entries and Pasquetta unverified; data licence and official-source verification outstanding."
+    },
+    {
+      "need_id": "N5",
+      "status": "met_with_conditions",
+      "best_sources": [
+        "internal.store.calendar"
+      ],
+      "gap": "Row count (1500) does not match declared daily coverage from 2022; is_open semantics around the till gap and holidays undocumented; access not verified."
+    }
+  ],
+  "overall_verdict": "feasible_with_conditions",
+  "overall_rationale": "No source is unreachable, unlicensed or out of window, so no blocker applies. All must needs (N1, N2, N3) have at least one usable source, but each depends on conditions: N1 on access approval, N3 on choosing the shop location and Legal sign-off for production, and N2 is only partially met because the 2024 code change has no mapping table. Under the rules, N2 partially_met is not unmet, so the overall verdict is feasible_with_conditions. The N2 mapping work is the critical path and must be resolved with Retail Operations before the history window can be modelled by product."
+}

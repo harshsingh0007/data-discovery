@@ -1,0 +1,10 @@
+{
+  "_comment": "Gate decisions: one entry per dataset link in your links file. 'url' must match the links file exactly. decision is 'accept' or 'reject'. reason is at least 20 characters, in your own words. Only accepted links are profiled. Copy to outputs/<ID>/gate_decisions.json.",
+  "decisions": [
+    {
+      "url": "https://example.org/dataset",
+      "decision": "accept",
+      "reason": "Why this link fits the need, and what you still need to check at source."
+    }
+  ]
+}

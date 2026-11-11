@@ -1,0 +1,113 @@
+{
+  "source_id": "internal.sales.products",
+  "kind": "internal",
+  "title": "Product list (current product codes, names, categories)",
+  "summary": "Static master list of the shop's current product codes, product names and categories, about 64 rows. It describes only the codes in use now, not the codes that were retired on 2024-04-01, so it cannot by itself map sales history across the 2024 code change. It has no effective dates and no temporal coverage recorded in the catalog.",
+  "schema": {
+    "documented": "structured",
+    "field_count": 3,
+    "fields": [
+      {
+        "name": "product_code",
+        "type": "string",
+        "description": "Current product code",
+        "pii": false
+      },
+      {
+        "name": "product_name",
+        "type": "string",
+        "description": "Product name",
+        "pii": false
+      },
+      {
+        "name": "category",
+        "type": "string",
+        "description": "Product category",
+        "pii": false
+      }
+    ],
+    "notes": "No effective-from/to dates, no old-code or mapping column. Catalog row_count_approx 64."
+  },
+  "temporal": {
+    "start": null,
+    "end": null,
+    "grain": "static",
+    "metadata_last_updated": "2025-03-31",
+    "open_ended": null,
+    "refresh_cadence": "on change"
+  },
+  "spatial": {
+    "coverage": [
+      "IT"
+    ],
+    "code_system": "free-text product names; internal product codes",
+    "notes": "Shop-level internal list; no geography column. Geography of the shop is per the use case, not recorded in this entry."
+  },
+  "ownership": {
+    "owner": "Retail Operations",
+    "publisher": null,
+    "steward": "Named individual recorded in catalog (not reproduced here)"
+  },
+  "licence": {
+    "name": "internal",
+    "agreement_status": null,
+    "attribution_text": null,
+    "commercial_use": "not_applicable",
+    "evidence": "Catalog entry classification 'internal' (get_catalog_entry internal.sales.products); no separate licence statement",
+    "mixed_sources": false,
+    "url": null
+  },
+  "access": {
+    "method": "warehouse_sql",
+    "auth_required": true,
+    "reachable": null,
+    "classification": "internal",
+    "request_process": "Open to analytics roles (catalog access.request_process). Not probed; access not tested.",
+    "approx_size_bytes": null
+  },
+  "declared_metadata": {
+    "contains_pii": false,
+    "classification": "internal",
+    "status": "active",
+    "grain": "static",
+    "refresh_cadence": "on change",
+    "last_refreshed": "2025-03-31",
+    "row_count_approx": 64
+  },
+  "documentation_excerpts": [
+    "Current product codes, names and categories. (catalog description)",
+    "From 2024-04-01, product codes changed. Codes ending in \"L\" were replaced by new codes. No mapping table exists between the old and new codes. Old and new codes can only be matched by product name, and some names are not unique. `sales.products` lists only the current codes. (wiki product_codes_2024, last_edited 2024-04-02)"
+  ],
+  "quality_notes": [
+    "Coverage gap: lists only current codes; pre-2024-04-01 codes ending in 'L' are absent (wiki product_codes_2024). It cannot satisfy N2 for the history window on its own.",
+    "No mapping table exists between old and new codes (wiki product_codes_2024). The only bridge is product name, which the wiki says is not unique across codes, so name-based matching would be ambiguous.",
+    "No effective dating: no effective-from/to or old-code column in the catalog schema, so the product list cannot show which code was valid on which date.",
+    "Freshness: catalog last_refreshed 2025-03-31, refresh 'on change'. The wiki page is dated 2024-04-02 and predates that refresh; the two sources do not conflict but the wiki does not describe the 2025 state.",
+    "Catalog temporal_coverage is null/null, so the coverage of the list in time is not documented.",
+    "Access not tested: no probe was made; reachability is unknown."
+  ],
+  "provenance": [
+    {
+      "claim": "Catalog entry: owner Retail Operations, classification internal, status active, grain static, refresh 'on change', last_refreshed 2025-03-31, row_count_approx 64, columns product_code/product_name/category, access method warehouse_sql with 'Open to analytics roles'.",
+      "evidence": "get_catalog_entry internal.sales.products (catalog_exported_at 2026-10-14T06:00:00Z)"
+    },
+    {
+      "claim": "2024-04-01 code change: codes ending in 'L' replaced; no mapping table; matching only by name; names not unique; list has current codes only.",
+      "evidence": "read_wiki_page product_codes_2024 (last_edited 2024-04-02)"
+    },
+    {
+      "claim": "Wiki backlink to this catalog entry is product_codes_2024; no other wiki pages reference it.",
+      "evidence": "get_catalog_entry internal.sales.products wiki_backlinks"
+    }
+  ],
+  "unknowns": [
+    "Whether the warehouse table is reachable and what the current access role requirements are (not probed).",
+    "Number of distinct products whose names are duplicated across codes (not stated anywhere).",
+    "Whether any pre-2024 product list or code history table exists elsewhere (not searched in this profile).",
+    "Any change to the code scheme or product list after 2025-03-31 (refresh is 'on change' but no later refresh is recorded).",
+    "Temporal coverage of the product list (catalog null)."
+  ],
+  "location": "azure://valdena-gelato/sales/products",
+  "status": "active",
+  "canonical_ref": null
+}

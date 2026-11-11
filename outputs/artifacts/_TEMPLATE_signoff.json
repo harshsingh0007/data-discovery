@@ -1,0 +1,24 @@
+{
+  "_comment": "Sign-off: write after the memo review. verdict is proceed, proceed_with_conditions or stop. conditions are required for proceed_with_conditions (each with text, owner and due). Give at least one agreement or override. traced_conclusion names one source (an id in discovery_results.json), one dotted field in its record (for example temporal.end), and what could change the conclusion (at least 20 characters). Copy to outputs/<ID>/signoff.json.",
+  "reviewer": "Your name",
+  "verdict": "proceed_with_conditions",
+  "conditions": [
+    {
+      "text": "What must happen first",
+      "owner": "Who does it",
+      "due": "YYYY-MM-DD"
+    }
+  ],
+  "agreements": [
+    {
+      "source_id": "internal.example",
+      "reason": "Why you agree with the agent here"
+    }
+  ],
+  "overrides": [],
+  "traced_conclusion": {
+    "source_id": "internal.example",
+    "record_field": "temporal.start",
+    "could_change_if": "The condition or open question that would change this conclusion"
+  }
+}

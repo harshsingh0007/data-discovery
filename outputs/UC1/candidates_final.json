@@ -1,0 +1,139 @@
+{
+  "candidates": [
+    {
+      "source_id": "internal.airq.station_readings",
+      "kind": "internal",
+      "title": "City station readings (hourly), Environment Monitoring Unit",
+      "need_ids": [
+        "N1"
+      ],
+      "target_windows": [
+        "production"
+      ],
+      "why_relevant": "Only internal hourly NO2 and PM2.5 source at station level; catalog grain hourly, timestamps ts_utc, units ug/m3 stated. Candidate for the production window 2024-01-01 to 2025-12-31 once access is granted.",
+      "found_via": "search_internal_catalog; get_catalog_entry; read_wiki_page station_network",
+      "suspected_issues": [
+        "Catalog temporal_coverage starts 2023-01-01, so it cannot serve the prototype window 2004-2005 (catalog airq.station_readings)",
+        "Station VR-03 (Via Roma) switched off 2024-06-30; readings stop there, but catalog still lists the network as active (wiki station_network, last_edited 2024-07-01)",
+        "No PM10 column; only NO2 and PM2.5 (catalog columns)",
+        "Access is by request to Environment Monitoring Unit; request status unknown",
+        "No station coordinates in the catalog, so join to the Open-Meteo location is not documented"
+      ]
+    },
+    {
+      "source_id": "internal.traffic.hourly_counts",
+      "kind": "internal",
+      "title": "Road traffic counts (hourly), Mobility Office",
+      "need_ids": [
+        "N2"
+      ],
+      "target_windows": [
+        "production"
+      ],
+      "why_relevant": "Only internal hourly traffic source; counters described as near the monitoring stations. Catalog coverage from 2021 includes 2024-2025.",
+      "found_via": "search_internal_catalog; get_catalog_entry; read_wiki_page counter_replacement_2024",
+      "suspected_issues": [
+        "Counters replaced 2024-03-18; before that counts per direction, after combined both directions; no adjustment documented and catalog has no note (wiki counter_replacement_2024)",
+        "Timestamp is ts_local (local time), while air-quality is ts_utc: timezone alignment needed",
+        "No counter-to-station mapping or distance documented in catalog",
+        "Coverage percentage for 2024-2025 unknown",
+        "Owner Mobility Office; access by request"
+      ]
+    },
+    {
+      "source_id": "internal.clinic.resp_visits_daily",
+      "kind": "internal",
+      "title": "Respiratory visits (daily, by district), Clinical Analytics",
+      "need_ids": [
+        "N4"
+      ],
+      "target_windows": [
+        "production"
+      ],
+      "why_relevant": "Aggregated daily respiratory visit counts by district with no patient identifiers; the only clinic source the clinic data policy allows for this analysis.",
+      "found_via": "search_internal_catalog; get_catalog_entry; read_wiki_page clinic_data_policy",
+      "suspected_issues": [
+        "Catalog coverage starts 2022-01-01; covers the production window but no zero-day or closure handling documented",
+        "Respiratory diagnosis code set and version not documented in catalog",
+        "District code list and link to N1 geography not documented; district boundary changes unknown",
+        "Row count ~40,000 is low relative to 730 days by district, so zero-day representation is unknown",
+        "Small-cell suppression rule not documented"
+      ]
+    },
+    {
+      "source_id": "api.open_meteo_archive",
+      "kind": "public_api",
+      "title": "Open-Meteo Historical Weather API (reanalysis)",
+      "need_ids": [
+        "N3"
+      ],
+      "target_windows": [
+        "prototype",
+        "production"
+      ],
+      "why_relevant": "Only register source for hourly temperature and relative humidity covering both windows; no internal station weather sensor was found in the catalog or wiki. Register purposes include prototyping and production.",
+      "found_via": "list_external_register",
+      "suspected_issues": [
+        "Register default_query points to Lisbon (38.72, -9.14); must be replaced with coordinates of the Italian city chosen as an assumption in decisions.md",
+        "Default hourly variables are temperature_2m and shortwave_radiation; relative_humidity_2m must be requested explicitly",
+        "Reanalysis is modelled grid data (~9-11 km), not a station reading",
+        "Timezone must be set to UTC to align with ts_utc of N1",
+        "Coverage for 2004-2005 is not stated in the register; verify at docs_url"
+      ]
+    },
+    {
+      "source_id": "link.uci_360",
+      "kind": "dataset_link",
+      "title": "Dataset link: https://archive.ics.uci.edu/dataset/360/air+quality",
+      "location": "https://archive.ics.uci.edu/dataset/360/air+quality",
+      "canonical_ref": "uci:360",
+      "need_ids": [
+        "N1"
+      ],
+      "target_windows": [
+        "prototype"
+      ],
+      "why_relevant": "Public hourly air-quality readings from an Italian city, 2004-2005. Check the city, the period and the missing-value coding.",
+      "found_via": "human input",
+      "suspected_issues": []
+    },
+    {
+      "source_id": "link.europa_sdg_11_52_099aa6",
+      "kind": "dataset_link",
+      "title": "Dataset link: https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sdg_11_52?format=JSON&",
+      "location": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sdg_11_52?format=JSON&lang=EN&geo=IT",
+      "canonical_ref": "ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sdg_11_52?format=JSON&geo=IT&lang=EN",
+      "need_ids": [
+        "N6"
+      ],
+      "target_windows": [
+        "prototype",
+        "production"
+      ],
+      "why_relevant": "Eurostat yearly deaths linked to PM2.5, Italy. National context only.",
+      "found_via": "human input",
+      "suspected_issues": []
+    },
+    {
+      "source_id": "link.data_open_air_chicago_hour_aggre_d4970b",
+      "kind": "dataset_link",
+      "title": "Dataset link: https://catalog.data.gov/dataset/open-air-chicago-hour-aggregations",
+      "location": "https://catalog.data.gov/dataset/open-air-chicago-hour-aggregations",
+      "canonical_ref": "catalog.data.gov/dataset/open-air-chicago-hour-aggregations",
+      "need_ids": [
+        "N1"
+      ],
+      "target_windows": [
+        "prototype"
+      ],
+      "why_relevant": "Hourly air-quality sensor data from a US city, found while searching for more hourly data.",
+      "found_via": "human input",
+      "suspected_issues": []
+    }
+  ],
+  "links": [
+    "https://archive.ics.uci.edu/dataset/360/air+quality",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sdg_11_52?format=JSON&lang=EN&geo=IT",
+    "https://catalog.data.gov/dataset/open-air-chicago-hour-aggregations"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "use_case": "UC1",
+  "problems": [],
+  "trace_stats": {
+    "llm_calls": 67,
+    "input_tokens": 791225,
+    "output_tokens": 160150,
+    "tool_calls": 68,
+    "tool_errors": 4,
+    "http_live": 13,
+    "http_refused": 3,
+    "refused_hosts": [
+      "catalog.data.gov",
+      "ec.europa.eu"
+    ],
+    "unreachable_links": [
+      "link.data_open_air_chicago_hour_aggre_d4970b"
+    ]
+  }
+}

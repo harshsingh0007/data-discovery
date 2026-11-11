@@ -1,0 +1,68 @@
+{
+  "flags": {
+    "api.open_meteo_archive": [
+      {
+        "code": "LIC-ATTRIBUTION",
+        "evidence": "Licence 'CC BY 4.0 for API data (per Open-Meteo licence and terms pages); underlying reanalysis carries Copernicus C3S/ECMWF terms' requires attribution",
+        "raised_by": "rule:rule_licence"
+      },
+      {
+        "code": "LIC-MIXED",
+        "evidence": "Record states that parts come from upstream providers with different terms",
+        "raised_by": "rule:rule_licence"
+      }
+    ],
+    "internal.airq.station_readings": [],
+    "internal.clinic.resp_visits_daily": [
+      {
+        "code": "ACC-RESTRICTED",
+        "evidence": "auth_required=True, classification=internal, process='Request to Clinical Analytics'",
+        "raised_by": "rule:rule_access"
+      }
+    ],
+    "internal.traffic.hourly_counts": [
+      {
+        "code": "ACC-RESTRICTED",
+        "evidence": "auth_required=True, classification=internal, process='Request to the Mobility Office'",
+        "raised_by": "rule:rule_access"
+      }
+    ],
+    "link.data_open_air_chicago_hour_aggre_d4970b": [
+      {
+        "code": "LIC-UNKNOWN",
+        "evidence": "No licence established. Evidence field: 'Not found: the catalog.data.gov page could not be read (DOMAIN_NOT_ALLOWLISTED from inspect_dataset_link). No other page was checked.'",
+        "raised_by": "rule:rule_licence"
+      },
+      {
+        "code": "ACC-UNREACHABLE",
+        "evidence": "Record states the source could not be reached or restored",
+        "raised_by": "rule:rule_access"
+      }
+    ],
+    "link.europa_sdg_11_52_099aa6": [
+      {
+        "code": "LIC-UNKNOWN",
+        "evidence": "No licence established. Evidence field: 'No licence statement found. inspect_dataset_link returned no licence evidence. probe_url on https://ec.europa.eu/eurostat/about/policies/copyright redirected to an EU Login page with no licence text, so the Eurostat reuse terms were not read.'",
+        "raised_by": "rule:rule_licence"
+      },
+      {
+        "code": "COV-PARTIAL-WINDOW",
+        "evidence": "Partial coverage in window(s) prototype, production: fractions [('prototype', 0.24), ('production', 0.0)], threshold 0.95; record 2005-01-01–2023-12-31",
+        "raised_by": "rule:rule_temporal_coverage"
+      }
+    ],
+    "link.uci_360": [
+      {
+        "code": "LIC-ATTRIBUTION",
+        "evidence": "Licence 'CC BY 4.0 (UCI page licence block) with dataset-specific research-only restriction; conflicting' requires attribution",
+        "raised_by": "rule:rule_licence"
+      },
+      {
+        "code": "FRS-STALE",
+        "evidence": "Record ends 2005-04-04 which is 21.5 years before as_of 2026-10-15 (threshold 5 years)",
+        "raised_by": "rule:rule_temporal_coverage"
+      }
+    ]
+  },
+  "warnings": []
+}

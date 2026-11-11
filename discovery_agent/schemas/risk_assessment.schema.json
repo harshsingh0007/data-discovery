@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RiskAssessment",
+  "type": "object",
+  "required": ["assessments", "overall_verdict", "overall_rationale", "need_coverage"],
+  "additionalProperties": false,
+  "properties": {
+    "assessments": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["source_id", "verdict", "red_flags", "conditions", "rationale"],
+        "additionalProperties": false,
+        "properties": {
+          "source_id": {"type": "string"},
+          "verdict": {"enum": ["feasible", "feasible_with_conditions", "not_feasible"]},
+          "red_flags": {
+            "type": "array",
+            "items": {
+              "type": "object", "required": ["code", "evidence"], "additionalProperties": false,
+              "properties": {"code": {"type": "string"}, "evidence": {"type": "string"}, "severity": {"enum": ["blocker", "major", "minor"]}}
+            }
+          },
+          "dismissed_rule_flags": {
+            "type": "array",
+            "items": {
+              "type": "object", "required": ["code", "reason"], "additionalProperties": false,
+              "properties": {"code": {"type": "string"}, "reason": {"type": "string"}}
+            }
+          },
+          "conditions": {"type": "array", "items": {"type": "string"}},
+          "who_can_resolve": {"type": "array", "items": {"type": "string"}},
+          "rationale": {"type": "string"}
+        }
+      }
+    },
+    "need_coverage": {
+      "type": "array",
+      "items": {
+        "type": "object", "required": ["need_id", "status", "best_sources"], "additionalProperties": false,
+        "properties": {
+          "need_id": {"type": "string"},
+          "status": {"enum": ["met", "met_with_conditions", "partially_met", "unmet"]},
+          "best_sources": {"type": "array", "items": {"type": "string"}},
+          "gap": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "overall_verdict": {"enum": ["feasible", "feasible_with_conditions", "not_feasible"]},
+    "overall_rationale": {"type": "string"}
+  }
+}

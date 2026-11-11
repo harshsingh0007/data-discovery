@@ -1,0 +1,120 @@
+{
+  "source_id": "internal.traffic.hourly_counts",
+  "kind": "internal",
+  "title": "Road traffic counts (hourly), Mobility Office",
+  "summary": "Hourly vehicle counts per road counter (counter_id, ts_local, vehicles), described in the catalog as counters near the city's monitoring stations. Catalog states about 15 million rows, temporal coverage from 2021-01-01 with no end date, hourly refresh (last refreshed 2026-10-12). Counter-to-monitoring-station mapping and distances are not documented. Counter replacement on 2024-03-18 changed the counting method (per direction before, both directions combined after), and the wiki says no adjustment has been applied or documented in the catalog.",
+  "schema": {
+    "documented": "structured",
+    "fields": [
+      {
+        "name": "counter_id",
+        "type": "string",
+        "description": "Road counter code",
+        "pii": false
+      },
+      {
+        "name": "ts_local",
+        "type": "timestamp",
+        "description": "Hour start, local time",
+        "pii": false,
+        "unit": "local time (timezone not stated)"
+      },
+      {
+        "name": "vehicles",
+        "type": "integer",
+        "description": "Vehicles counted in the hour",
+        "pii": false,
+        "unit": "vehicles per hour"
+      }
+    ],
+    "field_count": 3,
+    "notes": "No counter location, direction, or station mapping fields documented. Sample not read (internal, access by request)."
+  },
+  "temporal": {
+    "start": "2021-01-01",
+    "end": null,
+    "grain": "hourly",
+    "metadata_last_updated": "2026-10-12",
+    "open_ended": true,
+    "refresh_cadence": "hourly"
+  },
+  "spatial": {
+    "coverage": [
+      "IT"
+    ],
+    "code_system": "counter_id (free road-counter code; no geocode or station mapping documented)",
+    "notes": "Location described only as near monitoring stations; no coordinates, addresses or station key provided in catalog or wiki."
+  },
+  "ownership": {
+    "owner": "Mobility Office",
+    "publisher": null,
+    "steward": "Luca Ferri"
+  },
+  "licence": {
+    "name": "internal",
+    "agreement_status": null,
+    "attribution_text": null,
+    "commercial_use": "not_applicable",
+    "evidence": "catalog entry classification 'internal'; no licence field in catalog",
+    "mixed_sources": false,
+    "url": null
+  },
+  "access": {
+    "method": "warehouse_sql",
+    "auth_required": true,
+    "reachable": null,
+    "classification": "internal",
+    "request_process": "Request to the Mobility Office",
+    "approx_size_bytes": null
+  },
+  "declared_metadata": {
+    "contains_pii": false,
+    "status": "active",
+    "grain": "hourly",
+    "row_count_approx": 15000000,
+    "refresh_cadence": "hourly"
+  },
+  "documentation_excerpts": [
+    "Vehicles counted per hour by road counters near the monitoring stations.",
+    "On 2024-03-18 the road counters were replaced.",
+    "Before that date, counts were recorded per direction. From 2024-03-18, counts are both directions combined.",
+    "Do not compare counts across the change without adjusting for it. The catalog entry for `traffic.hourly_counts` has no note about this.",
+    "Station VR-03 (Via Roma) was switched off on 2024-06-30 (station_network wiki, relevant to any station-level join)."
+  ],
+  "quality_notes": [
+    "Method break on 2024-03-18: counts per direction before, both directions combined after (wiki counter_replacement_2024, last_edited 2024-04-02). Catalog entry has no note; comparisons across the change are not valid without adjustment.",
+    "Catalog says counts are 'near the monitoring stations' but no counter-to-station mapping or distance is documented anywhere checked.",
+    "Timestamp is ts_local (local time, timezone/DST handling not documented) while the city air-quality source uses ts_utc; alignment needed before joining.",
+    "Coverage/completeness of 2024-2025 hours per counter is not documented; the catalog only gives an approximate row count (about 15 million).",
+    "Related: station VR-03 (Via Roma) stopped reporting on 2024-06-30 (wiki station_network, last_edited 2024-07-01) although airq.station_readings lists the network as active; any traffic-to-station join must exclude it after that date.",
+    "Catalog and wiki are consistent on the counter replacement; no conflicting dates found."
+  ],
+  "provenance": [
+    {
+      "claim": "Catalog fields: owner Mobility Office, steward Luca Ferri, grain hourly, coverage 2021-01-01 to open, refresh hourly, last refreshed 2026-10-12, ~15M rows, columns counter_id/ts_local/vehicles, access warehouse_sql by request",
+      "evidence": "get_catalog_entry internal.traffic.hourly_counts"
+    },
+    {
+      "claim": "Counters replaced 2024-03-18; per-direction before, both directions after; do not compare without adjustment; catalog has no note",
+      "evidence": "read_wiki_page counter_replacement_2024 (last_edited 2024-04-02)"
+    },
+    {
+      "claim": "Station VR-03 switched off 2024-06-30; airq catalog still lists network as active",
+      "evidence": "read_wiki_page station_network (last_edited 2024-07-01)"
+    },
+    {
+      "claim": "No counter-to-station mapping or location documented; search for mapping/distance returned only the catalog entry and wiki pages above",
+      "evidence": "search_internal_catalog 'traffic counter station mapping distance coverage hourly'"
+    }
+  ],
+  "unknowns": [
+    "Counter-to-monitoring-station mapping and distances",
+    "Counter direction field availability before 2024-03-18 (not in schema)",
+    "Hourly completeness/coverage for 2024-2025",
+    "Local timezone and DST handling of ts_local",
+    "Whether the 2021 start date has usable data (no sample taken)",
+    "Whether warehouse access is currently granted (not tested)",
+    "Licence/terms beyond internal classification",
+    "Data sample not read: internal warehouse access not attempted"
+  ]
+}

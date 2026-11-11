@@ -1,0 +1,402 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CatalogRecord",
+  "type": "object",
+  "required": [
+    "source_id",
+    "kind",
+    "title",
+    "summary",
+    "schema",
+    "temporal",
+    "spatial",
+    "ownership",
+    "licence",
+    "access",
+    "declared_metadata",
+    "documentation_excerpts",
+    "quality_notes",
+    "provenance",
+    "unknowns"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "source_id": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "internal",
+        "public_api",
+        "vendor_feed",
+        "dataset_link"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "location": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Lifecycle status as found: active, deprecated, archived, frozen, ..."
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 30,
+      "description": "Two to five sentences: what the data is, at what grain, covering whom and when."
+    },
+    "schema": {
+      "type": "object",
+      "required": [
+        "documented",
+        "fields"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "documented": {
+          "enum": [
+            "structured",
+            "free_text_only",
+            "none"
+          ]
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "unit": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "pii": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "field_count": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "temporal": {
+      "type": "object",
+      "required": [
+        "start",
+        "end",
+        "grain"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "end": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+          "description": "null = still updating (open-ended)"
+        },
+        "open_ended": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "grain": {
+          "enum": [
+            "minute",
+            "15min",
+            "30min",
+            "hourly",
+            "daily",
+            "weekly",
+            "monthly",
+            "quarterly",
+            "annual",
+            "event",
+            "static",
+            "unknown"
+          ]
+        },
+        "refresh_cadence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "metadata_last_updated": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "spatial": {
+      "type": "object",
+      "required": [
+        "coverage"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "coverage": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "ISO 3166-1 alpha-2 codes where possible, or a named area"
+        },
+        "code_system": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "How places are identified in the data: ISO2, ISO3, free-text names, Eurostat codes, coordinates, ..."
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "ownership": {
+      "type": "object",
+      "required": [
+        "owner"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "owner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "steward": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publisher": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "licence": {
+      "type": "object",
+      "required": [
+        "name",
+        "evidence"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "e.g. 'CC BY 4.0', 'OGL v3.0', 'MIT', 'internal', or null if not found"
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "commercial_use": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "mixed_sources": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "true if different parts come from upstream providers with different terms"
+        },
+        "attribution_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "agreement_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Where the licence statement was read"
+        }
+      }
+    },
+    "access": {
+      "type": "object",
+      "required": [
+        "method",
+        "auth_required",
+        "reachable"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "type": "string",
+          "description": "warehouse_sql, rest_api, file_download, manual_export, restore_request, ..."
+        },
+        "auth_required": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "request_process": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reachable": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "false if a probe failed, the host was refused, or the store cannot be restored"
+        },
+        "approx_size_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "classification": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "declared_metadata": {
+      "type": "object",
+      "description": "Structured flags exactly as the source declares them, e.g. {\"has_missing_values\": \"no\", \"contains_pii\": null}"
+    },
+    "documentation_excerpts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Short verbatim quotes from the source's own documentation that matter for quality, coverage or governance"
+    },
+    "quality_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "claim",
+          "evidence"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "claim": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "string",
+            "description": "tool name + argument, URL, catalog field or wiki page id"
+          }
+        }
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonical_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "For dataset links: canonical_ref from inspect_dataset_link"
+    },
+    "sample_findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "What the data sample showed (types, sentinels, negative values, value sets), each with the column name. Empty if no sample could be read."
+    }
+  }
+}

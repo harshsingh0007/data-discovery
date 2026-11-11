@@ -1,0 +1,46 @@
+{
+  "reviewer": "Harsh",
+  "verdict": "proceed_with_conditions",
+  "conditions": [
+    {
+      "text": "Legal must resolve the UCI 360 research-only restriction before prototype use proceeds beyond method-building",
+      "owner": "Legal",
+      "due": "2026-12-01"
+    },
+    {
+      "text": "Access request submitted to Environment Monitoring Unit for station readings, station list and coordinates, and VR-03 closure status",
+      "owner": "Environment Monitoring Unit",
+      "due": "2026-11-25"
+    },
+    {
+      "text": "Access request submitted to Mobility Office for traffic counts, counter locations, station mapping and documentation of the 2024-03-18 counting change",
+      "owner": "Mobility Office",
+      "due": "2026-11-25"
+    },
+    {
+      "text": "Valdena coordinates recorded in outputs/artifacts/decisions.md before any Open-Meteo production probe",
+      "owner": "Harsh",
+      "due": "2026-11-18"
+    }
+  ],
+  "agreements": [
+    {
+      "source_id": "link.uci_360",
+      "reason": "Single road-level device with a research-only licence conflict and -200 sentinel values. Feasible for prototype method-building only; verdict matches the evidence."
+    },
+    {
+      "source_id": "internal.traffic.hourly_counts",
+      "reason": "The 2024-03-18 method change with no documented adjustment is confirmed in the wiki and the catalog has no note. Partial-met verdict is correct; this is the largest production risk."
+    },
+    {
+      "source_id": "link.data_open_air_chicago_hour_aggre_d4970b",
+      "reason": "Host refused by the allowlist guardrail as designed. Not-feasible verdict is correct. catalog.data.gov must not be added to the allowlist."
+    }
+  ],
+  "overrides": [],
+  "traced_conclusion": {
+    "source_id": "internal.airq.station_readings",
+    "record_field": "temporal.start",
+    "could_change_if": "If the Environment Monitoring Unit provides a backfill of station readings before 2023-01-01, the prototype window gap for N1 could be partially closed and the source could serve both windows rather than production only."
+  }
+}

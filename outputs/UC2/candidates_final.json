@@ -1,0 +1,105 @@
+{
+  "candidates": [
+    {
+      "source_id": "internal.sales.daily_by_product",
+      "kind": "internal",
+      "title": "Daily sales by product (till system)",
+      "need_ids": [
+        "N1",
+        "N2"
+      ],
+      "target_windows": [
+        "history",
+        "recent"
+      ],
+      "why_relevant": "Only internal source of daily units and revenue per product code; catalog temporal_coverage starts 2022-01-01 (open-ended), refreshed daily, last refreshed 2026-10-14. Owner Retail Operations, steward Marco Bianchi, access by request.",
+      "found_via": "search 'daily ice cream sales by product'; get_catalog_entry sales.daily_by_product; wiki till_migration_2024 backlink",
+      "suspected_issues": [
+        "Product codes changed on 2024-04-01 (wiki product_codes_2024): codes ending in L replaced; the same product has two keys",
+        "No mapping table exists between old and new codes (wiki product_codes_2024, last_edited 2024-04-02)",
+        "Till system replaced 2024-02-05 to 2024-03-10; no rows for those days, to be treated as missing not zero (wiki till_migration_2024, last_edited 2024-03-12)",
+        "Closed days appear to have no rows; closed vs zero-sales not distinguishable from this table alone",
+        "Timezone of sale_date not documented in catalog",
+        "Classification confidential"
+      ]
+    },
+    {
+      "source_id": "internal.sales.products",
+      "kind": "internal",
+      "title": "Product list (current codes)",
+      "need_ids": [
+        "N2"
+      ],
+      "target_windows": [
+        "history"
+      ],
+      "why_relevant": "Product master with names and categories; the only possible basis for name-based matching across the 2024 change, but lists current codes only.",
+      "found_via": "search 'product code change 2024 mapping gelato'; get_catalog_entry sales.products",
+      "suspected_issues": [
+        "Lists only current codes; pre-2024 L codes absent (wiki product_codes_2024)",
+        "Last refreshed 2025-03-31; no effective dating",
+        "Product names not unique across codes, per wiki product_codes_2024"
+      ]
+    },
+    {
+      "source_id": "internal.store.calendar",
+      "kind": "internal",
+      "title": "Shop calendar (opening days, closures, local events)",
+      "need_ids": [
+        "N5"
+      ],
+      "target_windows": [
+        "history",
+        "recent"
+      ],
+      "why_relevant": "Only internal record of is_open and event_name per day; catalog coverage from 2022-01-01 spans both windows. Steward Elena Russo (Store Operations).",
+      "found_via": "search 'shop opening closure days local events calendar'; get_catalog_entry store.calendar",
+      "suspected_issues": [
+        "No wiki page references this table (backlinks empty)",
+        "Refreshed weekly; last refreshed 2026-10-10",
+        "Row count approx 1500 vs roughly 1600 days from 2022 to 2026, so completeness unverified",
+        "event_name is free text; location within town not recorded"
+      ]
+    },
+    {
+      "source_id": "api.open_meteo_archive",
+      "kind": "public_api",
+      "title": "Open-Meteo Historical Weather API (reanalysis)",
+      "need_ids": [
+        "N3"
+      ],
+      "target_windows": [
+        "history",
+        "recent"
+      ],
+      "why_relevant": "Daily maximum temperature via temperature_2m_max; approved for prototyping and production; covers both windows if start and end dates are set to 2023-06-01 to 2026-03-31.",
+      "found_via": "list_external_register",
+      "suspected_issues": [
+        "Register default coordinates are Lisbon (38.72, -9.14); must be overridden with a justified Italian location recorded in decisions.md",
+        "Register default timezone is UTC; must set Europe/Rome for daily maximum",
+        "Reanalysis (modelled), not station-observed; may understate peaks",
+        "Register note: keep probe ranges short"
+      ]
+    },
+    {
+      "source_id": "api.nager_public_holidays",
+      "kind": "public_api",
+      "title": "Nager.Date public holidays API",
+      "need_ids": [
+        "N4"
+      ],
+      "target_windows": [
+        "history",
+        "recent"
+      ],
+      "why_relevant": "Public holidays by year for country code IT, 2023 to 2026; approved for prototyping and production.",
+      "found_via": "list_external_register",
+      "suspected_issues": [
+        "Returns nationwide and regional holidays with counties field; regional and local ones must be filtered",
+        "Easter-dependent dates (e.g. Pasquetta) need checking per year",
+        "No stated coverage beyond listed holidays; verify against official calendar if needed"
+      ]
+    }
+  ],
+  "links": []
+}

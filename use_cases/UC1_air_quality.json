@@ -1,0 +1,88 @@
+{
+  "id": "UC1",
+  "title": "Air quality and traffic: can we explain poor-air days and warn clinic patients in time?",
+  "client": "Valdena Civic Health Office (fictional, northern Italy)",
+  "brief_file": "use_cases/UC1_air_quality.md",
+  "internal_dir": "internal/UC1_valdena_health",
+  "as_of": "2026-10-15",
+  "geography": {
+    "primary": [
+      "IT"
+    ],
+    "secondary": []
+  },
+  "windows": [
+    {
+      "id": "prototype",
+      "start": "2004-03-10",
+      "end": "2005-04-04",
+      "purpose": "Build the method on public hourly air-quality readings while the city's own station data is requested."
+    },
+    {
+      "id": "production",
+      "start": "2024-01-01",
+      "end": "2025-12-31",
+      "purpose": "Two years of the city's own station, traffic and clinic data for the live warning model."
+    }
+  ],
+  "needs": [
+    {
+      "id": "N1",
+      "name": "Hourly air-pollutant concentrations (for example NO2 or PM2.5)",
+      "priority": "must",
+      "min_grain": "hourly",
+      "windows": [
+        "prototype",
+        "production"
+      ]
+    },
+    {
+      "id": "N2",
+      "name": "Hourly vehicle traffic near the monitoring stations",
+      "priority": "must",
+      "min_grain": "hourly",
+      "windows": [
+        "production"
+      ]
+    },
+    {
+      "id": "N3",
+      "name": "Hourly temperature and humidity",
+      "priority": "must",
+      "min_grain": "hourly",
+      "windows": [
+        "prototype",
+        "production"
+      ]
+    },
+    {
+      "id": "N4",
+      "name": "Daily respiratory clinic visits, as counts by district",
+      "priority": "should",
+      "min_grain": "daily",
+      "windows": [
+        "production"
+      ]
+    },
+    {
+      "id": "N5",
+      "name": "Patient-level clinic visit records",
+      "priority": "could",
+      "min_grain": "event",
+      "windows": [
+        "production"
+      ]
+    },
+    {
+      "id": "N6",
+      "name": "National yearly context: deaths linked to PM2.5",
+      "priority": "could",
+      "min_grain": "annual",
+      "windows": [
+        "prototype",
+        "production"
+      ]
+    }
+  ],
+  "links_hint": "The public hourly air-quality dataset is on the UCI repository. For national context, the Eurostat PM2.5 health indicator has a JSON-stat API. Check the city, the period and the missing-value coding before you accept a link."
+}
